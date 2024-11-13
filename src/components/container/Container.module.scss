@@ -1,0 +1,42 @@
+.container {
+	width: 100%;
+	min-width: 320px;
+	max-width: 375px;
+	padding: 0 1rem;
+	margin: 0 auto;
+}
+
+@include mobile {
+	.container {
+		padding: 0 1rem;
+	}
+}
+
+@include tablet {
+	.container {
+		padding: 0 1.5rem;
+		min-width: 768px;
+		max-width: 1023px;
+	}
+}
+
+@include desktop {
+	.container {
+		padding: 0 2rem;
+		min-width: 1024px;
+		max-width: 1439px;
+	}
+}
+
+@include large-desktop {
+	.container {
+		padding: 0 4rem;
+		min-width: 1440px;
+	}
+}
+
+@include extra-large-desktop {
+	.container {
+		padding: 0 4rem;
+	}
+}

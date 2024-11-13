@@ -1,0 +1,29 @@
+@use './variables' as *;
+
+html {
+	scroll-behavior: smooth;
+}
+
+.visually-hidden {
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	overflow: hidden;
+	clip-path: inset(50%);
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	color: $main-black;
+}
+
+.loader {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

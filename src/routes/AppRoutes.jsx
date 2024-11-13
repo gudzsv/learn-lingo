@@ -7,7 +7,7 @@ const HomePage = lazy(() => import('../pages/HomePage/HomePage.jsx'));
 
 const AppRoutes = () => {
 	return (
-		<Suspense fullback={<Loader />}>
+		<Suspense fallback={<Loader />}>
 			<Routes>
 				<Route path='/' element={<SharedLayout />}>
 					<Route index element={<HomePage />} />

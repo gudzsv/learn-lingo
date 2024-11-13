@@ -1,0 +1,118 @@
+.link {
+	color: $main-black;
+	line-height: 20px;
+	// transition: color var(--Animation_cubic);
+}
+
+.active {
+	line-height: 20px;
+	// color: var(--Button-Hover);
+}
+.header {
+	display: inline-flex;
+	align-items: center;
+	gap: 268px;
+}
+.navWrapper {
+	display: flex;
+	align-items: center;
+	gap: 390px;
+}
+
+.logoLink {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+}
+
+.logoText {
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: -0.02em;
+}
+
+.navList {
+	display: flex;
+	align-items: flex-start;
+	gap: 28px;
+}
+
+.authContainer {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.loginBtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 1.25;
+
+	background-color: inherit;
+}
+
+.registrationBtn {
+	display: flex;
+	padding: 14px 39px;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	border-radius: 12px;
+	background: $main-black;
+	color: $white;
+
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 1.25;
+}
+
+@include mobile {
+	.header {
+		padding: 0.5rem 1rem;
+	}
+}
+
+@include tablet {
+	.header {
+		padding: 0.75rem 1.5rem;
+		// min-width: 768px;
+		// max-width: 1023px;
+	}
+}
+
+@include desktop {
+	.header {
+		padding: 1rem 2rem;
+	}
+
+	.logoText {
+		font-size: 1.25rem;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+	}
+}
+
+@include large-desktop {
+	.header {
+		padding: 1.25rem 4rem;
+		// min-width: 1440px;
+	}
+}
+
+@include extra-large-desktop {
+	.header {
+		padding: 2rem 4rem;
+	}
+}
