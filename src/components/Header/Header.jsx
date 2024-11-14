@@ -2,6 +2,8 @@ import { Link, NavLink } from 'react-router-dom';
 import Icon from '../Icon/Icon.jsx';
 import styles from './Header.module.scss';
 
+import sprite from '../../assets/icons/sprite.svg';
+
 const activeClass = ({ isActive }) => {
 	return isActive ? styles.active : styles.link;
 };
@@ -13,7 +15,7 @@ const Header = () => {
 		<header className={styles.header}>
 			<div className={styles.navWrapper}>
 				<Link to='/' className={styles.logoLink} aria-label='Go to home page'>
-					<Icon iconName='logo' width={28} height={28} />
+					<Icon iconName={'logo'} width={18} height={18} className={'logo'} />
 					<span className={styles.logoText}>LearnLingo</span>
 				</Link>
 				<nav className={styles.navigation} aria-label='Primary navigation'>
@@ -43,6 +45,15 @@ const Header = () => {
 					Registration
 				</button>
 			</div>
+			<button className={styles.mobMenu}>
+				<Icon
+					iconName={'menu'}
+					width={18}
+					height={18}
+					className={'menu'}
+					role='button'
+				/>
+			</button>
 		</header>
 	);
 };

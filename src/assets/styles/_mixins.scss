@@ -25,6 +25,12 @@ $breakpoint-large-desktop: 1440px;
 	}
 }
 
+@mixin tabletAndLarger {
+	@media (min-width: #{$breakpoint-mobile + 1}) {
+		@content;
+	}
+}
+
 // Міксин для звичайних десктопів
 @mixin desktop {
 	@media (min-width: #{$breakpoint-tablet + 1}) and (max-width: #{$breakpoint-desktop}) {

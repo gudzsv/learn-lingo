@@ -1,0 +1,10 @@
+.logo {
+	@include tabletAndLarger {
+		width: 28px;
+		height: 28px;
+	}
+}
+
+.menu {
+	stroke: black;
+}

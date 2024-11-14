@@ -21,6 +21,10 @@ body {
 	color: $main-black;
 }
 
+button {
+	background-color: inherit;
+}
+
 .loader {
 	position: fixed;
 	top: 50%;
