@@ -9,6 +9,7 @@
 	color: orangered;
 }
 .header {
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -55,29 +56,6 @@
 
 		@include extra-large-desktop {
 			gap: 390px;
-		}
-
-		.logoLink {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			gap: 8px;
-
-			.logoText {
-				font-size: 1rem;
-				font-style: normal;
-				font-weight: 500;
-				line-height: 1.2;
-				letter-spacing: -0.02em;
-
-				@include desktop {
-					font-size: 1.25rem;
-					font-style: normal;
-					font-weight: 500;
-					line-height: 1.2;
-					letter-spacing: -0.02em;
-				}
-			}
 		}
 
 		.navList {

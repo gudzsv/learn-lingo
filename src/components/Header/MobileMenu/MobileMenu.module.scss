@@ -1,0 +1,133 @@
+.contextMenuBackdrop {
+	z-index: 10;
+	position: fixed;
+	background-color: #d2306a;
+	// display: none;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+
+	@include tabletAndLarger {
+		display: none;
+	}
+}
+
+.contextMenu {
+	background-color: #f6d9e4;
+	padding: 110px 60px 50px 60px;
+	border-radius: 0 0 32px 32px;
+	width: 280px;
+	margin-right: auto;
+	margin-left: auto;
+	position: fixed;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10;
+	// background-image: url(../img/header/paws.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 280px 206px;
+
+	// @media (min-resolution: 192dpi) {
+	// 	background-image: url(../img/header/paws-2x.png);
+	// }
+}
+
+.contextImg {
+	position: absolute;
+	top: 8px;
+	left: 8px;
+}
+
+.closeBtn {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	color: #000;
+}
+
+.closeIcon {
+	fill: #000;
+	stroke: #000;
+}
+
+.contextNavList {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	text-align: center;
+}
+
+.contextLisLink {
+	font-family: 'Permanent Marker', sans-serif;
+	font-weight: 400;
+	font-size: 20px;
+	text-align: center;
+	color: #000;
+	transition: color 0.3s ease-in-out;
+
+	&:hover,
+	&:focus {
+		color: #4dc4e9;
+	}
+}
+
+.contextMenuBtn {
+	display: flex;
+	width: 132px;
+	height: 42px;
+	position: absolute;
+	bottom: -62px;
+	left: 50%;
+	transform: translateX(-50%);
+	background-color: #000;
+	border: 2px solid #fac6d9;
+	border-radius: 10px;
+	padding: 8px 19.4px;
+	gap: 12px;
+	justify-content: center;
+	align-items: center;
+}
+
+.menuBtnNextWrapper {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.menuBtnTopText {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-size: 8px;
+	color: #fac6d9;
+}
+
+.menuBtnBottomText {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+	letter-spacing: -0.03em;
+	color: #fac6d9;
+	width: 61px;
+}
+
+.isOpen {
+	display: block;
+
+	@include tabletAndLarger {
+		display: none;
+	}
+}
+
+.screenFreeze {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+}

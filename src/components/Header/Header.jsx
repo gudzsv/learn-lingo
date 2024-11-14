@@ -1,8 +1,9 @@
 import { Link, NavLink } from 'react-router-dom';
 import Icon from '../Icon/Icon.jsx';
 import styles from './Header.module.scss';
-
-import sprite from '../../assets/icons/sprite.svg';
+import { useState } from 'react';
+import MobileMenu from './MobileMenu/MobileMenu.jsx';
+import Logo from '../Logo/Logo.jsx';
 
 const activeClass = ({ isActive }) => {
 	return isActive ? styles.active : styles.link;
@@ -11,13 +12,16 @@ const activeClass = ({ isActive }) => {
 const isAuthenticated = true;
 
 const Header = () => {
+	const [isOpenMenu, setIsOpenMenu] = useState(false);
+
+	const handleToggleMenu = () => {
+		setIsOpenMenu((prev) => !prev);
+	};
+
 	return (
 		<header className={styles.header}>
 			<div className={styles.navWrapper}>
-				<Link to='/' className={styles.logoLink} aria-label='Go to home page'>
-					<Icon iconName={'logo'} width={18} height={18} className={'logo'} />
-					<span className={styles.logoText}>LearnLingo</span>
-				</Link>
+				<Logo />
 				<nav className={styles.navigation} aria-label='Primary navigation'>
 					<ul className={styles.navList}>
 						<li className={styles.navItem}>
@@ -45,7 +49,11 @@ const Header = () => {
 					Registration
 				</button>
 			</div>
-			<button className={styles.mobMenu}>
+			<button
+				className={styles.mobMenu}
+				aria-label='open, close menu button'
+				onClick={handleToggleMenu}
+			>
 				<Icon
 					iconName={'menu'}
 					width={18}
@@ -54,6 +62,8 @@ const Header = () => {
 					role='button'
 				/>
 			</button>
+
+			{isOpenMenu && <MobileMenu closeMenu={handleToggleMenu} />}
 		</header>
 	);
 };
