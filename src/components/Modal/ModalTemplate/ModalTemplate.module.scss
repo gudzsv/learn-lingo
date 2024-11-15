@@ -1,0 +1,29 @@
+.modal {
+	background: white;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+.buttons {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-around;
+}
+
+.confirmBtn {
+	background-color: #007bff;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 4px;
+}
+
+.cancelBtn {
+	background-color: #f8f9fa;
+	color: #000;
+	border: 1px solid #ccc;
+	padding: 10px 20px;
+	border-radius: 4px;
+}

@@ -105,14 +105,14 @@
 			background: $main-black;
 			color: $white;
 
-			@include tablet {
-				padding: 12px 28px;
-			}
-
 			font-size: 16px;
 			font-style: normal;
 			font-weight: 700;
 			line-height: 1.25;
+		}
+
+		@include tablet {
+			padding: 12px 28px;
 		}
 	}
 
