@@ -67,7 +67,7 @@
 				gap: 18px;
 			}
 
-			@include desktopAndLarge {
+			@include desktopAndLarger {
 				gap: 28px;
 			}
 		}

@@ -1,0 +1,72 @@
+/* Загальний стиль для модального вікна */
+.modalOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5); /* Напівпрозоре затемнення */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000; /* Високий пріоритет */
+}
+
+.modalContent {
+	background-color: #fff;
+	padding: 1.5rem;
+	border-radius: 0.5rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	width: 90%; /* Гумова ширина для мобільних пристроїв */
+	min-width: 320px; /* Мінімальна ширина для найменших екранів */
+	animation: slideIn 0.3s ease-in-out; /* Анімація появи */
+
+	@include mobile {
+		max-width: 100%;
+	}
+
+	@include tablet {
+		max-width: 400px; /* Фіксована ширина для планшетів */
+	}
+
+	@include desktop {
+		max-width: 600px; /* Респонсивна ширина для звичайних десктопів */
+	}
+
+	@include large-desktop {
+		max-width: 800px; /* Респонсивна ширина для великих десктопів */
+	}
+
+	@include extra-large-desktop {
+		max-width: 1000px; /* Респонсивна ширина для екранів понад 1440px */
+	}
+}
+
+/* Анімація появи модального вікна */
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Кнопка закриття */
+.modalCloseBtn {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	background: none;
+	border: none;
+	font-size: 1.5rem;
+	color: #333;
+	cursor: pointer;
+	transition: color 0.2s;
+
+	&:hover {
+		color: #ff4d4f;
+	}
+}

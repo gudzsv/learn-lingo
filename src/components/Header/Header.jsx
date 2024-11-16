@@ -83,8 +83,10 @@ const Header = () => {
 			{isOpenMenu && <MobileMenu closeMenu={handleToggleMenu} />}
 			<ModalRoot isOpen={isSignOutOpen} onClose={handleCloseModal}>
 				<ModalTemplate
-					title='Sign Out'
-					message='Are you sure you want to sign out?'
+					title={'Registration'}
+					message={
+						'Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information'
+					}
 					onConfirm={handleConfirmSignOut}
 					onCancel={handleCloseModal}
 				/>

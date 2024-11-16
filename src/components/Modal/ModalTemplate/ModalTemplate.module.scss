@@ -1,9 +1,23 @@
 .modal {
-	background: white;
+	// background: white;
+	// padding: 20px;
+	// border-radius: 8px;
+	// box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	// text-align: center;
+
+	// width: 566px;
+	// height: 600px;
+	// border-radius: 30px;
+	// background-color: $white;
+	// padding: 64px;
+	// position: absolute;
+	// top: 50%;
+	// left: 50%;
+	// transform: translate(-50%, -50%);
+
+	width: 300px;
+	margin: 0 auto;
 	padding: 20px;
-	border-radius: 8px;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-	text-align: center;
 }
 
 .buttons {
@@ -12,12 +26,13 @@
 	justify-content: space-around;
 }
 
-.confirmBtn {
-	background-color: #007bff;
+.closeBtn {
+	// background-color: #007bff;
 	color: white;
 	border: none;
-	padding: 10px 20px;
+	// padding: 10px 20px;
 	border-radius: 4px;
+	cursor: pointer;
 }
 
 .cancelBtn {
