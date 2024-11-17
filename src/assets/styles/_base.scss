@@ -23,6 +23,7 @@ body {
 
 button {
 	background-color: inherit;
+	transition: all $animation-cubic;
 }
 
 .loader {
@@ -30,4 +31,20 @@ button {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+}
+
+*:focus {
+	outline: 2px solid $secondary-light-black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+button {
+	user-select: none;
 }

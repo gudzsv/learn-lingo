@@ -1,44 +1,42 @@
 .modal {
-	// background: white;
-	// padding: 20px;
-	// border-radius: 8px;
-	// box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-	// text-align: center;
-
-	// width: 566px;
-	// height: 600px;
-	// border-radius: 30px;
-	// background-color: $white;
-	// padding: 64px;
-	// position: absolute;
-	// top: 50%;
-	// left: 50%;
-	// transform: translate(-50%, -50%);
-
-	width: 300px;
+	width: 90%;
 	margin: 0 auto;
-	padding: 20px;
+	padding: 16px;
+
+	@include tabletAndLarger {
+		padding: 44px;
+	}
 }
 
-.buttons {
-	margin-top: 20px;
-	display: flex;
-	justify-content: space-around;
-}
+.modalTitle {
+	text-align: center;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+	letter-spacing: -0.8px;
+	margin-bottom: 8px;
 
-.closeBtn {
-	// background-color: #007bff;
-	color: white;
-	border: none;
-	// padding: 10px 20px;
-	border-radius: 4px;
-	cursor: pointer;
+	@include tabletAndLarger {
+		text-align: left;
+		font-size: 40px;
+		line-height: 48px;
+		margin-bottom: 20px;
+	}
 }
+.modalText {
+	text-align: justify;
+	color: $secondary-light-black;
+	font-family: Roboto;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 14px;
+	width: 100%;
 
-.cancelBtn {
-	background-color: #f8f9fa;
-	color: #000;
-	border: 1px solid #ccc;
-	padding: 10px 20px;
-	border-radius: 4px;
+	@include tabletAndLarger {
+		font-size: 16px;
+		line-height: 22px; /* 137.5% */
+		// width: 438px;
+	}
 }

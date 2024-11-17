@@ -1,27 +1,19 @@
-.button {
-	// display: inline-flex;
-	// align-items: center;
-	// justify-content: center;
-	// padding: 0.75rem 1.5rem;
-	// font-size: 1rem;
-	// font-weight: 500;
-	// border: none;
-	// border-radius: 0.5rem;
-	// background-color: #4caf50;
-	// color: #fff;
-	// cursor: pointer;
+//
 
+.button {
 	display: flex;
-	width: 438px;
-	padding: 16px 210px;
 	justify-content: center;
 	align-items: center;
 	border-radius: 12px;
-	background: #f4c550;
+	background-color: #f4c550;
 	transition: all $animation_cubic;
 
+	// Мобільний стиль (default для мобільних пристроїв)
+	width: 100%; // Ширина кнопки для мобільних пристроїв
+	padding: 14px 30px; // Паддінги для мобільних пристроїв
+
 	&:hover {
-		background-color: #45a049;
+		background-color: #ffdc86;
 	}
 
 	&:disabled {
@@ -30,7 +22,12 @@
 	}
 
 	&.loading {
-		background-color: #5a9;
+		background-color: #8a8a89;
+	}
+
+	@include tabletAndLarger {
+		width: 100%; // Ширина кнопки для планшетів
+		padding: 16px 40px; // Паддінги для планшетів
 	}
 }
 
@@ -46,5 +43,16 @@
 @keyframes spin {
 	to {
 		transform: rotate(360deg);
+	}
+}
+
+.modalBtn {
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 1.5;
+
+	@include tabletAndLarger {
+		font-size: 18px;
 	}
 }

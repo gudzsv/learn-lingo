@@ -5,6 +5,7 @@ import { useState } from 'react';
 import MobileMenu from './MobileMenu/MobileMenu.jsx';
 import Logo from '../Logo/Logo.jsx';
 import { ModalRoot, ModalTemplate } from '../Modal/index.js';
+import SignUpForm from '../Form/SignUpForm/SignUpForm.jsx';
 
 const activeClass = ({ isActive }) => (isActive ? styles.active : styles.link);
 
@@ -15,6 +16,10 @@ const Header = () => {
 
 	const [isSignOutOpen, setIsSignOutOpen] = useState(false);
 
+	const [isLoading, setIsLoading] = useState(false);
+
+	const [isSuccess, setIsSuccess] = useState(false);
+
 	const handleSignOutClick = () => {
 		setIsSignOutOpen(true);
 	};
@@ -23,9 +28,15 @@ const Header = () => {
 		setIsSignOutOpen(false);
 	};
 
-	const handleConfirmSignOut = () => {
-		console.log('User signed out');
-		setIsSignOutOpen(false);
+	const handleConfirmSignOut = (data) => {
+		setIsSuccess(false);
+		setIsLoading(true);
+		setTimeout(() => {
+			console.log('User signed out', data.email);
+			setIsLoading(false);
+			setIsSuccess(true);
+			setIsSignOutOpen(false); // Закриваємо модалку після завершення
+		}, 2000);
 	};
 
 	const handleToggleMenu = () => setIsOpenMenu((prev) => !prev);
@@ -81,15 +92,23 @@ const Header = () => {
 			</button>
 
 			{isOpenMenu && <MobileMenu closeMenu={handleToggleMenu} />}
-			<ModalRoot isOpen={isSignOutOpen} onClose={handleCloseModal}>
+
+			<ModalRoot
+				isOpen={isSignOutOpen}
+				onClose={handleCloseModal}
+				isSuccess={isSuccess}
+			>
 				<ModalTemplate
 					title={'Registration'}
 					message={
 						'Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information'
 					}
-					onConfirm={handleConfirmSignOut}
-					onCancel={handleCloseModal}
-				/>
+					isLoading={isLoading}
+					// onSubmit={handleConfirmSignOut}
+					// onCancel={handleCloseModal}
+				>
+					<SignUpForm onSubmit={handleConfirmSignOut} />
+				</ModalTemplate>
 			</ModalRoot>
 		</header>
 	);
