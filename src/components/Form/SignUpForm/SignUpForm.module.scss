@@ -32,6 +32,14 @@
 			padding: 16px 18px;
 		}
 	}
+
+	.signUpInput::placeholder {
+		color: currentColor;
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 22px;
+	}
 	.errorInput {
 		color: $error;
 		border: 1px solid $error;
@@ -39,13 +47,18 @@
 
 	.icon {
 		position: absolute;
-		right: 16px;
-		top: 16px;
+		right: 12px;
+		top: 8px;
 		fill: none;
-		stroke: var(--black);
-		width: 20px;
-		height: 20px;
+		stroke: $main-black;
 		cursor: pointer;
+
+		@include tabletAndLarger {
+			right: 18px;
+			top: 16px;
+			width: 20px;
+			height: 20px;
+		}
 	}
 }
 

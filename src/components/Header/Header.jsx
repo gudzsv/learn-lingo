@@ -1,11 +1,17 @@
 import { NavLink } from 'react-router-dom';
 import Icon from '../Icon/Icon.jsx';
 import styles from './Header.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MobileMenu from './MobileMenu/MobileMenu.jsx';
 import Logo from '../Logo/Logo.jsx';
 import { ModalRoot, ModalTemplate } from '../Modal/index.js';
 import SignUpForm from '../Form/SignUpForm/SignUpForm.jsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUser } from '../../redux/auth/operations.js';
+import {
+	selectIsLoading,
+	selectIsSuccess,
+} from '../../redux/auth/selectors.js';
 
 const activeClass = ({ isActive }) => (isActive ? styles.active : styles.link);
 
@@ -16,9 +22,14 @@ const Header = () => {
 
 	const [isSignOutOpen, setIsSignOutOpen] = useState(false);
 
-	const [isLoading, setIsLoading] = useState(false);
+	// const [isLoading, setIsLoading] = useState(false);
 
-	const [isSuccess, setIsSuccess] = useState(false);
+	// const [isSuccess, setIsSuccess] = useState(false);
+
+	const isSuccess = useSelector(selectIsSuccess);
+	const isLoading = useSelector(selectIsLoading);
+
+	const dispatch = useDispatch();
 
 	const handleSignOutClick = () => {
 		setIsSignOutOpen(true);
@@ -28,15 +39,16 @@ const Header = () => {
 		setIsSignOutOpen(false);
 	};
 
+	useEffect(() => {
+		if (isSuccess) {
+			setIsSignOutOpen(false);
+		}
+	}, [isSuccess]);
+
 	const handleConfirmSignOut = (data) => {
-		setIsSuccess(false);
-		setIsLoading(true);
-		setTimeout(() => {
-			console.log('User signed out', data.email);
-			setIsLoading(false);
-			setIsSuccess(true);
-			setIsSignOutOpen(false); // Закриваємо модалку після завершення
-		}, 2000);
+		dispatch(registerUser(data));
+
+		console.log('User signed out', data.email);
 	};
 
 	const handleToggleMenu = () => setIsOpenMenu((prev) => !prev);

@@ -1,10 +1,10 @@
 .modal {
-	width: 90%;
+	width: 100%;
 	margin: 0 auto;
-	padding: 16px;
+	// padding: 16px;
 
 	@include tabletAndLarger {
-		padding: 44px;
+		// padding: 44px;
 	}
 }
 
@@ -15,6 +15,7 @@
 	font-weight: 500;
 	line-height: 24px;
 	letter-spacing: -0.8px;
+	// margin-top: 12px;
 	margin-bottom: 8px;
 
 	@include tabletAndLarger {
@@ -27,8 +28,7 @@
 .modalText {
 	text-align: justify;
 	color: $secondary-light-black;
-	font-family: Roboto;
-	font-size: 10px;
+	font-size: 14px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 14px;
@@ -36,7 +36,6 @@
 
 	@include tabletAndLarger {
 		font-size: 16px;
-		line-height: 22px; /* 137.5% */
-		// width: 438px;
+		line-height: 22px;
 	}
 }

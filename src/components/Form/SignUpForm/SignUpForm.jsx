@@ -5,8 +5,13 @@ import { signUpValidationSchema } from '../../../schemas/signUpValidationSchema.
 import clsx from 'clsx';
 
 import styles from './SignUpForm.module.scss';
+import { useState } from 'react';
 
 const SignUpForm = ({ onSubmit }) => {
+	const [isEyeOn, setIsEyeOn] = useState(false);
+
+	const toggleEyeChange = () => setIsEyeOn((prev) => !prev);
+
 	const {
 		register,
 		handleSubmit,
@@ -65,13 +70,20 @@ const SignUpForm = ({ onSubmit }) => {
 					className={clsx(styles.signUpInput, {
 						[styles.errorInput]: errors.password,
 					})}
-					type='text'
+					type={isEyeOn ? 'text' : 'password'}
 					autoComplete='password'
-					inputMode='password'
 				/>
+
 				<span className={styles.icon}>
-					<Icon iconName={'eye-off'} role={'button'} />
+					<Icon
+						onClick={toggleEyeChange}
+						iconName={isEyeOn ? 'eye' : 'eye-off'}
+						role={'button'}
+						width={20}
+						height={20}
+					/>
 				</span>
+
 				{errors.password && (
 					<div className={styles.error}>{errors.password.message}</div>
 				)}
