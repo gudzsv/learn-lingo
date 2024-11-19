@@ -1,56 +1,68 @@
+//
+
 import { createSlice } from '@reduxjs/toolkit';
-import { loginUser, registerUser } from './operations.js';
+import { loginUser, registerUser, logoutUser } from './operations.js';
+
+const resetAuthState = (state) => {
+	state.user = null;
+	state.isLoading = false;
+	state.isAuthenticated = false;
+	state.error = null;
+};
+
+const initialState = {
+	user: null,
+	isLoading: false,
+	isAuthenticated: false,
+	error: null,
+};
 
 const authSlice = createSlice({
 	name: 'auth',
-	initialState: {
-		user: null,
-		isLoading: false,
-		isLoggedIn: false,
-		isSuccess: false,
-		error: null,
-	},
+	initialState,
 	reducers: {
-		logout(state) {
-			state.user = null;
+		setUser: (state, action) => {
+			state.user = action.payload;
+			state.isAuthenticated = true;
+		},
+		clearUser: resetAuthState,
+		clearError: (state) => {
+			state.error = null;
 		},
 	},
 	extraReducers: (builder) => {
-		builder
-			.addCase(registerUser.pending, (state) => {
-				state.isLoading = true;
-				state.isSuccess = false;
-				state.error = null;
-			})
-			.addCase(registerUser.fulfilled, (state, action) => {
-				state.isLoading = false;
-				state.isSuccess = true;
-				state.user = action.payload;
-			})
-			.addCase(registerUser.rejected, (state, action) => {
-				state.isLoading = false;
-				state.isSuccess = false;
-				state.error = action.payload;
-			});
+		const handlePending = (state) => {
+			state.isLoading = true;
+			state.error = null;
+		};
+
+		const handleRejected = (state, action) => {
+			state.isLoading = false;
+			state.error = action.payload || { message: 'Unexpected error' };
+		};
+
+		const handleFulfilled = (state, action) => {
+			state.isLoading = false;
+			state.isAuthenticated = true;
+			state.user = action.payload;
+		};
 
 		builder
-			.addCase(loginUser.pending, (state) => {
-				state.isLoading = true;
-				state.error = null;
-				state.isLoggedIn = false;
+			.addCase(registerUser.pending, handlePending)
+			.addCase(registerUser.fulfilled, handleFulfilled)
+			.addCase(registerUser.rejected, handleRejected)
+
+			.addCase(loginUser.pending, handlePending)
+			.addCase(loginUser.fulfilled, handleFulfilled)
+			.addCase(loginUser.rejected, handleRejected)
+
+			.addCase(logoutUser.pending, handlePending)
+			.addCase(logoutUser.fulfilled, (state) => {
+				resetAuthState(state);
 			})
-			.addCase(loginUser.fulfilled, (state, action) => {
-				state.isLoading = false;
-				state.isLoggedIn = true;
-				state.user = action.payload;
-			})
-			.addCase(loginUser.rejected, (state, action) => {
-				state.isLoading = false;
-				state.isLoggedIn = false;
-				state.error = action.payload;
-			});
+			.addCase(logoutUser.rejected, handleRejected);
 	},
 });
 
-export const { logout } = authSlice.actions;
+export const { setUser, clearUser, clearError } = authSlice.actions;
 export const authReducer = authSlice.reducer;

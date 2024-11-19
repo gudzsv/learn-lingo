@@ -1,16 +1,14 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import Icon from '../../Icon/Icon.jsx';
+import Icon from '../../shared/Icon/Icon.jsx';
 import { signUpValidationSchema } from '../../../schemas/signUpValidationSchema.js';
 import clsx from 'clsx';
+import { useToggleEye } from '../../../hooks/useToggleEye.js';
 
 import styles from './SignUpForm.module.scss';
-import { useState } from 'react';
 
 const SignUpForm = ({ onSubmit }) => {
-	const [isEyeOn, setIsEyeOn] = useState(false);
-
-	const toggleEyeChange = () => setIsEyeOn((prev) => !prev);
+	const { isEyeOn, toggleEye } = useToggleEye();
 
 	const {
 		register,
@@ -76,7 +74,7 @@ const SignUpForm = ({ onSubmit }) => {
 
 				<span className={styles.icon}>
 					<Icon
-						onClick={toggleEyeChange}
+						onClick={toggleEye}
 						iconName={isEyeOn ? 'eye' : 'eye-off'}
 						role={'button'}
 						width={20}

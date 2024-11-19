@@ -1,0 +1,58 @@
+//
+
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 12px;
+	background-color: #f4c550;
+	transition: all $animation_cubic;
+
+	// Мобільний стиль (default для мобільних пристроїв)
+	width: 100%; // Ширина кнопки для мобільних пристроїв
+	padding: 14px 30px; // Паддінги для мобільних пристроїв
+
+	&:hover {
+		background-color: #ffdc86;
+	}
+
+	&:disabled {
+		background-color: #ccc;
+		cursor: not-allowed;
+	}
+
+	&.loading {
+		background-color: #8a8a89;
+	}
+
+	@include tabletAndLarger {
+		width: 100%; // Ширина кнопки для планшетів
+		padding: 16px 40px; // Паддінги для планшетів
+	}
+}
+
+.spinner {
+	width: 1rem;
+	height: 1rem;
+	border: 2px solid transparent;
+	border-top: 2px solid #fff;
+	border-radius: 50%;
+	animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.modalBtn {
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 1.5;
+
+	@include tabletAndLarger {
+		font-size: 18px;
+	}
+}

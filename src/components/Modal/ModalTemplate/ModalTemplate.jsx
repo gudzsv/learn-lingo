@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ModalTemplate.module.scss';
-import Button from '../../Button/Button.jsx';
+import Button from '../../shared/Button/Button.jsx';
 
 const ModalTemplate = ({ title, message, children, onSubmit, isLoading }) => {
 	return (
@@ -13,7 +13,7 @@ const ModalTemplate = ({ title, message, children, onSubmit, isLoading }) => {
 			<h2 className={styles.modalTitle}>{title}</h2>
 			<p className={styles.modalText}>{message}</p>
 			{children}
-			<div className={styles.modalBtn}>
+			{/* <div className={styles.modalBtn}>
 				<Button
 					form='signUpForm'
 					type={'submit'}
@@ -22,7 +22,7 @@ const ModalTemplate = ({ title, message, children, onSubmit, isLoading }) => {
 					// onClick={onConfirm}
 					isLoading={isLoading}
 				/>
-			</div>
+			</div> */}
 		</div>
 	);
 };

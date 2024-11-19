@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom';
-import Icon from '../Icon/Icon.jsx';
+import { NavLink, useNavigate } from 'react-router-dom';
+import Icon from '../shared/Icon/Icon.jsx';
 import styles from './Header.module.scss';
 import { useEffect, useState } from 'react';
 import MobileMenu from './MobileMenu/MobileMenu.jsx';
@@ -7,43 +7,62 @@ import Logo from '../Logo/Logo.jsx';
 import { ModalRoot, ModalTemplate } from '../Modal/index.js';
 import SignUpForm from '../Form/SignUpForm/SignUpForm.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUser } from '../../redux/auth/operations.js';
 import {
+	loginUser,
+	logoutUser,
+	registerUser,
+} from '../../redux/auth/operations.js';
+import {
+	selectIsAuthenticated,
 	selectIsLoading,
-	selectIsSuccess,
 } from '../../redux/auth/selectors.js';
+import AuthButton from '../shared/Button/AuthButton/AuthButton.jsx';
+import SignInForm from '../Form/SignInForm/SignInForm.jsx';
 
 const activeClass = ({ isActive }) => (isActive ? styles.active : styles.link);
 
-const isAuthenticated = true;
+// const isAuthenticated = true;
 
 const Header = () => {
 	const [isOpenMenu, setIsOpenMenu] = useState(false);
 
 	const [isSignOutOpen, setIsSignOutOpen] = useState(false);
+	const [isLogInOpen, setIsLogInOpen] = useState(false);
+	// const [isLogInOpen, setIsLogOutOpen] = useState(false);
 
-	// const [isLoading, setIsLoading] = useState(false);
-
-	// const [isSuccess, setIsSuccess] = useState(false);
-
-	const isSuccess = useSelector(selectIsSuccess);
+	const isAuthenticated = useSelector(selectIsAuthenticated);
 	const isLoading = useSelector(selectIsLoading);
 
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		if (isAuthenticated) {
+			setIsSignOutOpen(false);
+			navigate('teachers');
+		}
+	}, [isAuthenticated]);
 
 	const handleSignOutClick = () => {
 		setIsSignOutOpen(true);
 	};
 
-	const handleCloseModal = () => {
-		setIsSignOutOpen(false);
+	const handleLogInClick = () => {
+		setIsLogInOpen(true);
 	};
 
-	useEffect(() => {
-		if (isSuccess) {
-			setIsSignOutOpen(false);
-		}
-	}, [isSuccess]);
+	const handleCloseModal = () => {
+		setIsSignOutOpen(false);
+		setIsLogInOpen(false);
+	};
+
+	const handleLogOut = () => {
+		dispatch(logoutUser());
+	};
+
+	const handleConfirmLogIn = (data) => {
+		dispatch(loginUser(data));
+	};
 
 	const handleConfirmSignOut = (data) => {
 		dispatch(registerUser(data));
@@ -81,18 +100,33 @@ const Header = () => {
 			</div>
 
 			<nav className={styles.authContainer} aria-label='Authentication options'>
-				<button type='button' className={styles.loginBtn} aria-label='Log in'>
-					<Icon iconName='login' width={20} height={20} />
-					Log in
-				</button>
-				<button
-					type='button'
-					className={styles.registrationBtn}
-					aria-label='Register'
-					onClick={handleSignOutClick}
-				>
-					Registration
-				</button>
+				{isAuthenticated ? (
+					<AuthButton
+						onClick={handleLogOut}
+						label={'Log Out'}
+						icon={'log-out'}
+						style={'logOutBtn'}
+						type={'button'}
+					/>
+				) : (
+					<>
+						<AuthButton
+							onClick={handleLogInClick}
+							label={'Log in'}
+							icon={'login'}
+							style={'logInBtn'}
+							type={'button'}
+						/>
+						<button
+							type='button'
+							className={styles.registrationBtn}
+							aria-label='Register'
+							onClick={handleSignOutClick}
+						>
+							Registration
+						</button>
+					</>
+				)}
 			</nav>
 
 			<button
@@ -108,7 +142,7 @@ const Header = () => {
 			<ModalRoot
 				isOpen={isSignOutOpen}
 				onClose={handleCloseModal}
-				isSuccess={isSuccess}
+				isSuccess={isAuthenticated}
 			>
 				<ModalTemplate
 					title={'Registration'}
@@ -116,10 +150,22 @@ const Header = () => {
 						'Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information'
 					}
 					isLoading={isLoading}
-					// onSubmit={handleConfirmSignOut}
-					// onCancel={handleCloseModal}
 				>
 					<SignUpForm onSubmit={handleConfirmSignOut} />
+				</ModalTemplate>
+			</ModalRoot>
+
+			<ModalRoot
+				isOpen={isLogInOpen}
+				onClose={handleCloseModal}
+				isSuccess={isAuthenticated}
+			>
+				<ModalTemplate
+					title='Log In'
+					message='Welcome back! Please enter your credentials to access your account and continue your search for an teacher.'
+					isLoading={isLoading}
+				>
+					<SignInForm onSubmit={handleConfirmLogIn} />
 				</ModalTemplate>
 			</ModalRoot>
 		</header>

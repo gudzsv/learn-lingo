@@ -23,7 +23,12 @@ export default [
 			'react-hooks': reactHooks,
 			'react-refresh': reactRefresh,
 		},
-		extends: ['eslint:recommended', 'plugin:react/recommended'],
+		extends: [
+			'eslint:recommended',
+			'plugin:react/recommended',
+			'plugin:import/errors',
+			'plugin:import/warnings',
+		],
 		rules: {
 			'react/prop-types': 'off',
 			...js.configs.recommended.rules,
@@ -34,6 +39,13 @@ export default [
 			'react-refresh/only-export-components': [
 				'warn',
 				{ allowConstantExport: true },
+			],
+			'no-unused-vars': 'warn',
+			'import/no-unused-modules': [
+				1,
+				{
+					unusedExports: true,
+				},
 			],
 		},
 	},

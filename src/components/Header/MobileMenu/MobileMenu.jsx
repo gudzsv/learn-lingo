@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './MobileMenu.module.scss';
 import Logo from '../../Logo/Logo.jsx';
-import Icon from '../../Icon/Icon.jsx';
+import Icon from '../../shared/Icon/Icon.jsx';
 import { NavLink } from 'react-router-dom';
 
 const activeClass = ({ isActive }) => (isActive ? styles.active : styles.link);

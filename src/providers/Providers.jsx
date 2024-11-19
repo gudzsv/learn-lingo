@@ -4,18 +4,28 @@ import { Provider } from 'react-redux';
 import store from '../redux/store.js';
 import App from '../App.jsx';
 import { app } from '../firebase/firebase.js';
+import { initializeAuthListener } from '../redux/auth/operations.js';
+import { useEffect } from 'react';
 
-const Providers = () => (
-	<Provider store={store}>
-		{/* <PersistGate loading={null} persistor={persistor}> */}
-		<BrowserRouter>
-			<HelmetProvider>
-				<App />
-			</HelmetProvider>
-		</BrowserRouter>
+store.dispatch(initializeAuthListener());
 
-		{/* </PersistGate> */}
-	</Provider>
-);
+const Providers = () => {
+	useEffect(() => {
+		store.dispatch(initializeAuthListener());
+	}, []);
+
+	return (
+		<Provider store={store}>
+			{/* <PersistGate loading={null} persistor={persistor}> */}
+			<BrowserRouter>
+				<HelmetProvider>
+					<App />
+				</HelmetProvider>
+			</BrowserRouter>
+
+			{/* </PersistGate> */}
+		</Provider>
+	);
+};
 
 export default Providers;

@@ -1,10 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
 	createUserWithEmailAndPassword,
+	onAuthStateChanged,
 	signInWithEmailAndPassword,
+	signOut,
 	updateProfile,
 } from 'firebase/auth';
 import { auth } from '../../firebase/firebase.js';
+import { clearUser, setUser } from './slice.js';
 
 export const registerUser = createAsyncThunk(
 	'auth/registerUser',
@@ -17,10 +20,16 @@ export const registerUser = createAsyncThunk(
 			);
 			await updateProfile(userCredential.user, { displayName: name });
 
+			const loginCredential = await signInWithEmailAndPassword(
+				auth,
+				email,
+				password
+			);
+
 			const user = {
-				uid: userCredential.user.uid,
-				email: userCredential.user.email,
-				displayName: userCredential.user.displayName,
+				uid: loginCredential.user.uid,
+				email: loginCredential.user.email,
+				displayName: loginCredential.user.displayName,
 			};
 			return user;
 		} catch (error) {
@@ -44,3 +53,34 @@ export const loginUser = createAsyncThunk(
 		}
 	}
 );
+
+export const logoutUser = createAsyncThunk(
+	'auth/logoutUser',
+	async (_, { rejectWithValue }) => {
+		try {
+			await signOut(auth);
+		} catch (error) {
+			return rejectWithValue(error.message);
+		}
+	}
+);
+
+export const initializeAuthListener = () => {
+	return (dispatch, getState) => {
+		onAuthStateChanged(auth, (user) => {
+			const { user: currentUser } = getState().auth;
+
+			if (user && (!currentUser || currentUser.uid !== user.uid)) {
+				dispatch(
+					setUser({
+						uid: user.uid,
+						email: user.email,
+						displayName: user.displayName,
+					})
+				);
+			} else if (!user && currentUser) {
+				dispatch(clearUser());
+			}
+		});
+	};
+};
