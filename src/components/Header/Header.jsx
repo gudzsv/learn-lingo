@@ -39,6 +39,7 @@ const Header = () => {
 	useEffect(() => {
 		if (isAuthenticated) {
 			setIsSignOutOpen(false);
+			setIsLogInOpen(false);
 			navigate('teachers');
 		}
 	}, [isAuthenticated]);
@@ -61,6 +62,8 @@ const Header = () => {
 	};
 
 	const handleConfirmLogIn = (data) => {
+		console.log('handleConfirmLogIn', data);
+
 		dispatch(loginUser(data));
 	};
 

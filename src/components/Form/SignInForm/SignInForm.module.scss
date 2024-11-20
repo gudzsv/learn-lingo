@@ -1,4 +1,4 @@
-.signUpForm {
+.signUpFormInputsWrapper {
 	padding-block: 20px;
 
 	display: inline-flex;
@@ -60,6 +60,10 @@
 			height: 20px;
 		}
 	}
+}
+
+.modalBtn {
+	width: 100%;
 }
 
 .error {

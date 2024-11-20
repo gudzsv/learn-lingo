@@ -47,7 +47,12 @@ export const loginUser = createAsyncThunk(
 				email,
 				password
 			);
-			return userCredential.user;
+			const user = {
+				uid: userCredential.user.uid,
+				email: userCredential.user.email,
+				displayName: userCredential.user.displayName,
+			};
+			return user;
 		} catch (error) {
 			return rejectWithValue(error.message);
 		}
