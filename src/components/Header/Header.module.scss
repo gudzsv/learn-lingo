@@ -1,13 +1,3 @@
-.link {
-	color: $main-black;
-	line-height: 20px;
-	transition: $animation_cubic;
-}
-
-.active {
-	line-height: 20px;
-	color: orangered;
-}
 .header {
 	position: relative;
 	display: flex;
@@ -15,26 +5,22 @@
 	justify-content: space-between;
 
 	@include mobile {
-		padding: 0.5rem 1rem;
+		padding: 1rem 1rem;
 	}
 
 	@include tablet {
-		// gap: 68px;
 		padding: 0.75rem 1.5rem;
 	}
 
 	@include desktop {
-		// gap: 168px;
 		padding: 1rem 2rem;
 	}
 
 	@include large-desktop {
-		// gap: 268px;
 		padding: 1.25rem 4rem;
 	}
 
 	@include extra-large-desktop {
-		// gap: 268px;
 		padding: 2rem 4rem;
 	}
 
@@ -56,69 +42,6 @@
 
 		@include extra-large-desktop {
 			gap: 390px;
-		}
-
-		.navList {
-			display: none;
-
-			@include tabletAndLarger {
-				display: flex;
-				align-items: flex-start;
-				gap: 18px;
-			}
-
-			@include desktopAndLarger {
-				gap: 28px;
-			}
-		}
-	}
-	.authContainer {
-		display: none;
-
-		@include tabletAndLarger {
-			display: flex;
-			align-items: center;
-			gap: 16px;
-		}
-
-		// .loginBtn {
-		// 	display: flex;
-		// 	justify-content: center;
-		// 	align-items: center;
-		// 	gap: 8px;
-
-		// 	font-size: 16px;
-		// 	font-style: normal;
-		// 	font-weight: 700;
-		// 	line-height: 1.25;
-
-		// 	background-color: inherit;
-		// }
-
-		.registrationBtn {
-			display: flex;
-			padding: 14px 39px;
-			justify-content: center;
-			align-items: center;
-			gap: 8px;
-			border-radius: 12px;
-			background: $main-black;
-			color: $white;
-
-			font-size: 16px;
-			font-style: normal;
-			font-weight: 700;
-			line-height: 1.25;
-		}
-
-		@include tablet {
-			padding: 12px 28px;
-		}
-	}
-
-	.mobMenu {
-		@include tabletAndLarger {
-			display: none;
 		}
 	}
 }

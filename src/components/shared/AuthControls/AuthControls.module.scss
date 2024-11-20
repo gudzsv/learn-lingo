@@ -1,0 +1,40 @@
+.authContainer {
+	display: none;
+
+	@include tabletAndLarger {
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		gap: 16px;
+	}
+
+	.registrationBtn {
+		display: flex;
+		padding: 14px 39px;
+		justify-content: center;
+		align-items: center;
+		gap: 8px;
+		border-radius: 12px;
+		background: $main-black;
+		color: $white;
+
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: 1.25;
+	}
+
+	@include tablet {
+		padding: 12px 28px;
+	}
+}
+
+.openModal {
+	@include mobile {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 12px;
+	}
+}

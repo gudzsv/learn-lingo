@@ -13,15 +13,6 @@ const SubmitBtn = ({
 	ariaPressed,
 	isLoading,
 }) => {
-	// const [isLoading, setIsLoading] = useState(false);
-	// const handleClick = () => {
-	// 	console.log('CLICK', isLoading);
-
-	// 	setIsLoading(true);
-	// 	setTimeout(() => {
-	// 		setIsLoading(false);
-	// 	}, 2000);
-	// };
 	return (
 		<button
 			form={form}

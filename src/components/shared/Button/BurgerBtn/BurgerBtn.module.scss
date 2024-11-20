@@ -1,0 +1,5 @@
+.mobMenu {
+	@include tabletAndLarger {
+		display: none;
+	}
+}

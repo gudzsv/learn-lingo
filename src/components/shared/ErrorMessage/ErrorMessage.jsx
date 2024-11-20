@@ -9,7 +9,7 @@ const ErrorMessage = ({ message }) => {
 	useEffect(() => {
 		const timeout = setTimeout(() => {
 			dispatch(clearError());
-		}, 5000);
+		}, 7000);
 
 		return () => clearTimeout(timeout);
 	}, [dispatch]);
@@ -17,7 +17,7 @@ const ErrorMessage = ({ message }) => {
 	return (
 		<div className={styles.errorMessage}>
 			<p>{message}</p>
-			<button onClick={() => window.location.reload()}>Try Again</button>
+			{/* <button onClick={() => window.location.reload()}>Try Again</button> */}
 		</div>
 	);
 };

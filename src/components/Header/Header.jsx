@@ -1,12 +1,15 @@
-import { NavLink, useNavigate } from 'react-router-dom';
-import Icon from '../shared/Icon/Icon.jsx';
-import styles from './Header.module.scss';
+import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import MobileMenu from './MobileMenu/MobileMenu.jsx';
-import Logo from '../Logo/Logo.jsx';
-import { ModalRoot, ModalTemplate } from '../Modal/index.js';
-import SignUpForm from '../Form/SignUpForm/SignUpForm.jsx';
 import { useDispatch, useSelector } from 'react-redux';
+import MobileMenu from './MobileMenu/MobileMenu.jsx';
+import Logo from '../Shared/Logo/Logo.jsx';
+import BurgerBtn from '../Shared/Button/BurgerBtn/BurgerBtn.jsx';
+import ModalManager from './ModalManager/ModalManager.jsx';
+import AuthControls from '../Shared/AuthControls/AuthControls.jsx';
+import Navigation from '../Shared/Navigation/Navigation.jsx';
+
+import styles from './Header.module.scss';
+
 import {
 	loginUser,
 	logoutUser,
@@ -16,19 +19,10 @@ import {
 	selectIsAuthenticated,
 	selectIsLoading,
 } from '../../redux/auth/selectors.js';
-import AuthButton from '../shared/Button/AuthButton/AuthButton.jsx';
-import SignInForm from '../Form/SignInForm/SignInForm.jsx';
-
-const activeClass = ({ isActive }) => (isActive ? styles.active : styles.link);
-
-// const isAuthenticated = true;
 
 const Header = () => {
 	const [isOpenMenu, setIsOpenMenu] = useState(false);
-
-	const [isSignOutOpen, setIsSignOutOpen] = useState(false);
-	const [isLogInOpen, setIsLogInOpen] = useState(false);
-	// const [isLogInOpen, setIsLogOutOpen] = useState(false);
+	const [modalState, setModalState] = useState({ type: null, isOpen: false });
 
 	const isAuthenticated = useSelector(selectIsAuthenticated);
 	const isLoading = useSelector(selectIsLoading);
@@ -38,139 +32,52 @@ const Header = () => {
 
 	useEffect(() => {
 		if (isAuthenticated) {
-			setIsSignOutOpen(false);
-			setIsLogInOpen(false);
-			navigate('teachers');
+			closeModal();
+			navigate('/teachers');
 		}
 	}, [isAuthenticated]);
 
-	const handleSignOutClick = () => {
-		setIsSignOutOpen(true);
-	};
+	const toggleMenu = () => setIsOpenMenu((prev) => !prev);
+	const openModal = (type) => setModalState({ type, isOpen: true });
+	const closeModal = () => setModalState({ type: null, isOpen: false });
 
-	const handleLogInClick = () => {
-		setIsLogInOpen(true);
-	};
-
-	const handleCloseModal = () => {
-		setIsSignOutOpen(false);
-		setIsLogInOpen(false);
-	};
-
-	const handleLogOut = () => {
-		dispatch(logoutUser());
-	};
-
-	const handleConfirmLogIn = (data) => {
-		console.log('handleConfirmLogIn', data);
-
-		dispatch(loginUser(data));
-	};
-
-	const handleConfirmSignOut = (data) => {
-		dispatch(registerUser(data));
-
-		console.log('User signed out', data.email);
-	};
-
-	const handleToggleMenu = () => setIsOpenMenu((prev) => !prev);
+	const handleLogOut = () => dispatch(logoutUser());
+	const handleConfirmLogIn = (data) => dispatch(loginUser(data));
+	const handleConfirmSignUp = (data) => dispatch(registerUser(data));
 
 	return (
 		<header className={styles.header}>
 			<div className={styles.navWrapper}>
 				<Logo />
-				<nav className={styles.navigation} aria-label='Primary navigation'>
-					<ul className={styles.navList}>
-						<li className={styles.navItem}>
-							<NavLink to='/' className={activeClass}>
-								Home
-							</NavLink>
-						</li>
-						<li className={styles.navItem}>
-							<NavLink to='/teachers' className={activeClass}>
-								Teachers
-							</NavLink>
-						</li>
-						{isAuthenticated && (
-							<li className={styles.navItem}>
-								<NavLink to='/favorites' className={activeClass}>
-									Favorites
-								</NavLink>
-							</li>
-						)}
-					</ul>
-				</nav>
+				<Navigation isAuthenticated={isAuthenticated} />
 			</div>
 
-			<nav className={styles.authContainer} aria-label='Authentication options'>
-				{isAuthenticated ? (
-					<AuthButton
-						onClick={handleLogOut}
-						label={'Log Out'}
-						icon={'log-out'}
-						style={'logOutBtn'}
-						type={'button'}
-					/>
-				) : (
-					<>
-						<AuthButton
-							onClick={handleLogInClick}
-							label={'Log in'}
-							icon={'login'}
-							style={'logInBtn'}
-							type={'button'}
-						/>
-						<button
-							type='button'
-							className={styles.registrationBtn}
-							aria-label='Register'
-							onClick={handleSignOutClick}
-						>
-							Registration
-						</button>
-					</>
-				)}
-			</nav>
+			<AuthControls
+				isAuthenticated={isAuthenticated}
+				onLogOut={handleLogOut}
+				onOpenModal={openModal}
+			/>
 
-			<button
-				className={styles.mobMenu}
-				aria-label='Toggle menu'
-				onClick={handleToggleMenu}
-			>
-				<Icon iconName='menu' width={18} height={18} className={'conMenu'} />
-			</button>
+			<BurgerBtn onClick={toggleMenu} />
 
-			{isOpenMenu && <MobileMenu closeMenu={handleToggleMenu} />}
+			{isOpenMenu && (
+				<MobileMenu
+					isAuthenticated={isAuthenticated}
+					isOpen={isOpenMenu}
+					closeMenu={toggleMenu}
+					handleLogOut={handleLogOut}
+					openModal={openModal}
+				/>
+			)}
 
-			<ModalRoot
-				isOpen={isSignOutOpen}
-				onClose={handleCloseModal}
-				isSuccess={isAuthenticated}
-			>
-				<ModalTemplate
-					title={'Registration'}
-					message={
-						'Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information'
-					}
-					isLoading={isLoading}
-				>
-					<SignUpForm onSubmit={handleConfirmSignOut} />
-				</ModalTemplate>
-			</ModalRoot>
-
-			<ModalRoot
-				isOpen={isLogInOpen}
-				onClose={handleCloseModal}
-				isSuccess={isAuthenticated}
-			>
-				<ModalTemplate
-					title='Log In'
-					message='Welcome back! Please enter your credentials to access your account and continue your search for an teacher.'
-					isLoading={isLoading}
-				>
-					<SignInForm onSubmit={handleConfirmLogIn} />
-				</ModalTemplate>
-			</ModalRoot>
+			<ModalManager
+				modalState={modalState}
+				isLoading={isLoading}
+				isAuthenticated={isAuthenticated}
+				onClose={closeModal}
+				onLogIn={handleConfirmLogIn}
+				onSignUp={handleConfirmSignUp}
+			/>
 		</header>
 	);
 };

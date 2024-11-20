@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import styles from './ModalRoot.module.scss';
-import Icon from '../../shared/Icon/Icon.jsx';
+import Icon from '../../Icon/Icon.jsx';
 
 const modalRoot = document.getElementById('modal-root');
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import ErrorMessage from '../components/shared/ErrorMessage/ErrorMessage.jsx';
-import Loader from '../components/Loader/Loader.jsx';
+import ErrorMessage from '../components/Shared/ErrorMessage/ErrorMessage.jsx';
+import Loader from '../components/Shared/Loader/Loader.jsx';
 import { useSelector } from 'react-redux';
 import {
 	selectError,

@@ -1,46 +1,62 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './MobileMenu.module.scss';
-import Logo from '../../Logo/Logo.jsx';
-import Icon from '../../shared/Icon/Icon.jsx';
-import { NavLink } from 'react-router-dom';
+import Logo from '../../Shared/Logo/Logo.jsx';
+import CloseBtn from '../../shared/Button/CloseBtn/CloseBtn.jsx';
+import AuthControls from '../../Shared/AuthControls/AuthControls.jsx';
+import Navigation from '../../Shared/Navigation/Navigation.jsx';
 
-const activeClass = ({ isActive }) => (isActive ? styles.active : styles.link);
-let isAuthenticated = true;
+const maxMobileWidth = 425;
 
-const MobileMenu = ({ closeMenu }) => {
+const MobileMenu = ({
+	isOpen,
+	closeMenu,
+	handleLogOut,
+	isAuthenticated,
+	openModal,
+}) => {
+	useEffect(() => {
+		const handleResize = () => {
+			if (window.innerWidth > maxMobileWidth && isOpen) {
+				closeMenu();
+			}
+		};
+
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, [isOpen, closeMenu]);
+
 	return (
-		<div className={styles.contextMenuBackdrop}>
-			<div className={styles.contextMenu}>
-				<Logo className={'logoAbsolute'} />
-				<button
-					className={styles.closeBtn}
-					type='button'
+		<div className={styles.contextMenuBackdrop} role='presentation'>
+			<div
+				className={styles.contextMenu}
+				role='dialog'
+				aria-labelledby='mobileMenuLabel'
+			>
+				<Logo id='mobileMenuLabel' className={'logoAbsolute'} />
+				<CloseBtn
+					icon={'close'}
 					aria-label='Close mobile menu'
 					onClick={closeMenu}
-				>
-					<Icon iconName={'close'} width={18} height={18} />
-				</button>
-				<nav className={styles.navigation} aria-label='Primary navigation'>
-					<ul className={styles.navList}>
-						<li className={styles.navItem}>
-							<NavLink to='/' className={activeClass}>
-								Home
-							</NavLink>
-						</li>
-						<li className={styles.navItem}>
-							<NavLink to='/teachers' className={activeClass}>
-								Teachers
-							</NavLink>
-						</li>
-						{isAuthenticated && (
-							<li className={styles.navItem}>
-								<NavLink to='/favorites' className={activeClass}>
-									Favorites
-								</NavLink>
-							</li>
-						)}
-					</ul>
-				</nav>
+					className={'closeBtn'}
+				/>
+
+				<AuthControls
+					isOpen={isOpen}
+					isAuthenticated={isAuthenticated}
+					onLogOut={handleLogOut}
+					onOpenModal={openModal}
+				/>
+
+				<hr className={styles.hr} />
+
+				<Navigation
+					isAuthenticated={isAuthenticated}
+					isBurger={true}
+					closeMenu={closeMenu}
+				/>
 			</div>
 		</div>
 	);

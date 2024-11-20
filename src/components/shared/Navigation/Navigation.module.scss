@@ -1,0 +1,35 @@
+.link {
+	color: $main-black;
+	line-height: 20px;
+	transition: $animation_cubic;
+}
+
+.active {
+	line-height: 20px;
+	color: orangered;
+}
+
+.navList {
+	display: none;
+
+	@include tabletAndLarger {
+		display: flex;
+		align-items: flex-start;
+		gap: 18px;
+	}
+
+	@include desktopAndLarger {
+		gap: 28px;
+	}
+}
+
+.navListMobile {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	font-weight: 700;
+
+	.navItem {
+		text-align: center;
+	}
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx'; // Доданий імпорт clsx
-import Icon from '../shared/Icon/Icon.jsx';
+import Icon from '../Icon/Icon.jsx';
 import styles from './Logo.module.scss';
 
 const Logo = React.memo(({ className = '' }) => {

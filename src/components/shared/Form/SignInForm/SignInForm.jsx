@@ -1,19 +1,24 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import Icon from '../../shared/Icon/Icon.jsx';
+import Icon from '../../Icon/Icon.jsx';
 
 import clsx from 'clsx';
-import { useToggleEye } from '../../../hooks/useToggleEye.js';
-import SubmitBtn from '../../shared/Button/SubmitBtn/SubmitBtn.jsx';
+import { useToggleEye } from '../../../../hooks/useToggleEye.js';
+import SubmitBtn from '../../Button/SubmitBtn/SubmitBtn.jsx';
 
 import styles from './SignInForm.module.scss';
 import { useSelector } from 'react-redux';
-import { selectIsLoading } from '../../../redux/auth/selectors.js';
-import { signInValidationSchema } from '../../../schemas/signInValidationSchema.js';
+import {
+	selectError,
+	selectIsLoading,
+} from '../../../../redux/auth/selectors.js';
+import { signInValidationSchema } from '../../../../schemas/signInValidationSchema.js';
+import ErrorMessage from '../../ErrorMessage/ErrorMessage.jsx';
 
 const SignInForm = ({ onSubmit }) => {
 	const { isEyeOn, toggleEye } = useToggleEye();
 	const isLoading = useSelector(selectIsLoading);
+	const error = useSelector(selectError);
 
 	const {
 		register,
@@ -32,15 +37,15 @@ const SignInForm = ({ onSubmit }) => {
 	return (
 		<form
 			id='signInForm'
-			className={styles.signUpForm}
+			className={styles.form}
 			onSubmit={handleSubmit(onSubmit)}
 		>
-			<div className={styles.signUpFormInputsWrapper}>
-				<div className={styles.signUpInputWrapper}>
+			<div className={styles.formInputsWrapper}>
+				<div className={styles.inputWrapper}>
 					<input
 						{...register('email')}
 						placeholder={'Email'}
-						className={clsx(styles.signUpInput, {
+						className={clsx(styles.input, {
 							[styles.errorInput]: errors.email,
 						})}
 						type='text'
@@ -51,11 +56,11 @@ const SignInForm = ({ onSubmit }) => {
 						<div className={styles.error}>{errors.email.message}</div>
 					)}
 				</div>
-				<div className={styles.signUpInputWrapper}>
+				<div className={styles.inputWrapper}>
 					<input
 						{...register('password')}
 						placeholder={'Password'}
-						className={clsx(styles.signUpInput, {
+						className={clsx(styles.input, {
 							[styles.errorInput]: errors.password,
 						})}
 						type={isEyeOn ? 'text' : 'password'}
@@ -81,12 +86,12 @@ const SignInForm = ({ onSubmit }) => {
 				<SubmitBtn
 					form='signInForm'
 					type={'submit'}
-					text='Sign '
+					text='Log In '
 					className={'modalBtn'}
-					// onClick={onConfirm}
 					isLoading={isLoading}
 				/>
 			</div>
+			{error && <ErrorMessage message={error} />}
 		</form>
 	);
 };

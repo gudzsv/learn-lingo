@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ModalTemplate.module.scss';
-import Button from '../../shared/Button/Button.jsx';
+import Button from '../../Button/Button.jsx';
 
 const ModalTemplate = ({ title, message, children, onSubmit, isLoading }) => {
 	return (
