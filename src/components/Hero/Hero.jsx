@@ -3,7 +3,7 @@ import styles from './Hero.module.scss';
 
 const Hero = () => {
 	return (
-		<section className={styles.heroWrapper}>
+		<div className={styles.heroWrapper}>
 			<div className={styles.heroContentWrapper}>
 				<h1 className={styles.heroHeading}>
 					Unlock your potential with the best{' '}
@@ -26,20 +26,35 @@ const Hero = () => {
 				<picture>
 					<source
 						srcSet='
-							image@1x.webp 1x,
-							image@2x.webp 2x'
+							/src/assets/img/hero/face/face_1x.webp 1x,
+							/src/assets/img/hero/face/face_2x.webp 2x'
 						type='image/webp'
 					/>
 					<img
-						src='image@1x.jpg'
+						src='/src/assets/img/hero/face/face_1x.webp'
 						alt='Motivational image of a person learning languages'
-						width='600'
-						height='400'
+						width='339'
+						height='339'
+						loading='lazy'
+					/>
+				</picture>
+				<picture>
+					<source
+						srcSet='
+							/src/assets/img/hero/mac/mac_1x.webp 1x,
+							/src/assets/img/hero/mac/mac_2x.webp 2x'
+						type='image/webp'
+					/>
+					<img
+						src='/src/assets/img/hero/mac/mac_1x.webp'
+						alt='Motivational image of a person learning languages'
+						width='359'
+						height='247'
 						loading='lazy'
 					/>
 				</picture>
 			</div>
-		</section>
+		</div>
 	);
 };
 
