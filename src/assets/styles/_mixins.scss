@@ -43,6 +43,12 @@ $breakpoint-large-desktop: 1440px;
 	}
 }
 
+@mixin largeDesktopAndLarger {
+	@media (min-width: #{$breakpoint-desktop + 1}) {
+		@content;
+	}
+}
+
 // Респонсивний дизайн для екранів понад 1440px
 @mixin extra-large-desktop {
 	@media (min-width: #{$breakpoint-large-desktop + 1}) {

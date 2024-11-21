@@ -1,0 +1,47 @@
+.laptopImgWrapper {
+	position: relative;
+	display: flex;
+	// width: 150px;
+	// height: 50px;
+	padding: 0px 15.64px;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+
+	@include mobile {
+		margin-bottom: -5px;
+	}
+
+	@include tabletAndLarger {
+		width: 391px;
+		// height: 304px;
+	}
+}
+
+.laptop {
+	position: relative;
+
+	width: 182px;
+	height: 80px;
+	margin: 0;
+
+	@include tabletAndLarger {
+		width: 361px;
+		height: 176px;
+	}
+}
+
+.apple {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	width: 22px;
+	height: 27px;
+
+	@include tabletAndLarger {
+		width: 47px;
+		height: 57px;
+	}
+}

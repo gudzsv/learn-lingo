@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import styles from './Hero.module.scss';
+import Icon from '../Shared/Icon/Icon';
+import LaptopImg from './LaptopImg/LaptopImg.jsx';
 
 const Hero = () => {
 	return (
-		<div className={styles.heroWrapper}>
+		<section className={styles.heroWrapper}>
 			<div className={styles.heroContentWrapper}>
 				<h1 className={styles.heroHeading}>
 					Unlock your potential with the best{' '}
@@ -23,7 +25,7 @@ const Hero = () => {
 				</Link>
 			</div>
 			<div className={styles.heroImageWrapper}>
-				<picture>
+				<picture className={styles.heroPictureFace}>
 					<source
 						srcSet='
 							/src/assets/img/hero/face/face_1x.webp 1x,
@@ -38,23 +40,10 @@ const Hero = () => {
 						loading='lazy'
 					/>
 				</picture>
-				<picture>
-					<source
-						srcSet='
-							/src/assets/img/hero/mac/mac_1x.webp 1x,
-							/src/assets/img/hero/mac/mac_2x.webp 2x'
-						type='image/webp'
-					/>
-					<img
-						src='/src/assets/img/hero/mac/mac_1x.webp'
-						alt='Motivational image of a person learning languages'
-						width='359'
-						height='247'
-						loading='lazy'
-					/>
-				</picture>
+
+				<LaptopImg />
 			</div>
-		</div>
+		</section>
 	);
 };
 

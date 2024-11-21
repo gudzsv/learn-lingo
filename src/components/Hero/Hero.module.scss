@@ -6,7 +6,7 @@
 	flex-direction: column-reverse;
 	gap: 24px;
 
-	@include tabletAndLarger {
+	@include desktopAndLarger {
 		flex-direction: row;
 	}
 }
@@ -15,12 +15,22 @@
 	border-radius: 30px;
 	background: #f8f8f8;
 	width: 100%;
+	padding: 1rem;
 
 	@include tabletAndLarger {
 		width: 720px;
 		height: 530px;
 		flex-shrink: 0;
+		padding-top: 98px;
 		padding-left: 64px;
+	}
+
+	@include desktop {
+		width: 520px;
+		padding-left: 34px;
+	}
+	@include largeDesktopAndLarger {
+		width: 53%;
 	}
 }
 
@@ -38,6 +48,11 @@
 		line-height: 56px; /* 116.667% */
 		margin-bottom: 32px;
 	}
+
+	@include desktop {
+		font-size: 36px;
+		width: 400px;
+	}
 }
 
 .textDecoration {
@@ -46,10 +61,10 @@
 	border-radius: 8px;
 	background: #fbe9ba;
 
-	@include tabletAndLarger {
-		font-size: 48px;
-		flex-shrink: 0;
-	}
+	// @include tabletAndLarger {
+	// 	font-size: 48px;
+	// 	flex-shrink: 0;
+	// }
 }
 
 .heroText {
@@ -76,5 +91,46 @@
 
 	&:hover {
 		background-color: #fbe9ba;
+	}
+}
+
+.heroImageWrapper {
+	border-radius: 30px;
+	background-color: #fbe9ba;
+	// padding-top: 1rem;
+	// padding-left: 1rem;
+	overflow: hidden;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	flex-direction: column;
+
+	@include tablet {
+		// padding-top: 80px;
+		// padding-left: 88px;
+		// width: 568px;
+		// height: 530px;
+		// flex-shrink: 0;
+		width: 100%;
+	}
+
+	@include desktop {
+		width: 415px;
+	}
+
+	@include largeDesktopAndLarger {
+		// width: 568px;
+		width: 45%;
+		height: 530px;
+		flex-shrink: 0;
+	}
+}
+
+.heroPictureFace {
+	margin-bottom: -65px;
+	// width: 45%;
+	@include mobile {
+		margin-bottom: -33px;
+		width: 170px;
 	}
 }
