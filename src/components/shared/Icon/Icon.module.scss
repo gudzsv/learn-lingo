@@ -20,3 +20,13 @@
 .apple {
 	fill: #d08f38;
 }
+
+.arrowIcon {
+	position: absolute;
+	top: 50%;
+	right: 18px;
+	transform: translateY(-50%);
+	width: 20px;
+	height: 20px;
+	pointer-events: none; /* Щоб стрілка не заважала клікам */
+}

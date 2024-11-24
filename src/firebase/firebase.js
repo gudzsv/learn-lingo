@@ -1,10 +1,13 @@
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import { getAuth } from 'firebase/auth';
+import { getDatabase } from 'firebase/database';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyDhQCRSr7AFQp23ddse8jZcHFd_i46CD0s',
 	authDomain: 'learn-lingo-d1fd2.firebaseapp.com',
+	databaseURL:
+		'https://learn-lingo-d1fd2-default-rtdb.europe-west1.firebasedatabase.app/',
 	projectId: 'learn-lingo-d1fd2',
 	storageBucket: 'learn-lingo-d1fd2.firebasestorage.app',
 	messagingSenderId: '714805126462',
@@ -16,5 +19,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
+const db = getDatabase(app);
 
-export { app, auth };
+export { app, auth, db };
