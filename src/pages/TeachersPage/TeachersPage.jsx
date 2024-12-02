@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllTeachers } from '../../redux/teachers/operations.js';
 import { selectAllTeachers } from '../../redux/teachers/selectors.js';
+// import Dropdown from '../../components/shared/Dropdown/Dropdown.jsx';
 
 const TeachersPage = () => {
 	const dispatch = useDispatch();
