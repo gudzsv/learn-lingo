@@ -9,13 +9,21 @@ const Dropdown = ({
 	items,
 	activeDropdownId,
 	setActiveDropdownId,
+	value,
+	setValue,
+	register,
 }) => {
 	const { isOpen, selectedItem, toggleDropdown, handleSelect } = useDropdown(
-		items[0],
+		value || items[0],
 		id,
 		activeDropdownId,
 		setActiveDropdownId
 	);
+
+	const handleItemSelect = (item) => {
+		handleSelect(item);
+		setValue(id, item);
+	};
 
 	return (
 		<div className={styles.dropdown} data-dropdown-id={id}>
@@ -30,7 +38,7 @@ const Dropdown = ({
 					{items.map((item, index) => (
 						<li
 							key={index}
-							onClick={() => handleSelect(item)}
+							onClick={() => handleItemSelect(item)}
 							className={clsx(styles.dropdownItem, {
 								[styles.activeItem]: item === selectedItem,
 							})}
