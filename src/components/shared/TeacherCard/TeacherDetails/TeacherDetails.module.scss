@@ -1,0 +1,60 @@
+.teacherDetails {
+	display: flex;
+	align-items: center;
+	gap: 64px;
+}
+
+.detailsList {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.detailsItem {
+	display: flex;
+	align-items: center;
+
+	&:not(:last-child)::after {
+		content: '|';
+		width: 1px;
+		height: fit-content;
+		display: inline-block;
+		margin-left: 16px;
+
+		color: gray;
+	}
+}
+
+.detailsTitle {
+	display: flex;
+	align-items: center;
+
+	color: $main-black;
+
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px; /* 150% */
+}
+
+.detailIcon {
+	display: flex;
+	align-items: center;
+	margin-right: 8px;
+}
+
+.detailsValue {
+	display: flex;
+	align-items: center;
+	color: $main-black;
+
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px; /* 150% */
+	margin-left: 4px;
+}
+
+.detailsPrice {
+	color: $green;
+}

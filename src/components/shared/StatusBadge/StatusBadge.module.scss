@@ -1,0 +1,20 @@
+.badge {
+	position: absolute;
+	width: 12px;
+	height: 12px;
+	flex-shrink: 0;
+	border-radius: 50%;
+	border: 2px solid $white; /* Обвід для контрасту */
+	top: 19px;
+	left: 85px;
+	// background-color: gray; /* Статус за замовчуванням */
+	// transition: background-color 0.3s ease;
+}
+
+.badge.active {
+	background-color: #38cd3e;
+}
+
+.badge.inactive {
+	background-color: #f4c550;
+}

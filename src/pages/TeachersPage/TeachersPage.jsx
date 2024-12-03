@@ -22,12 +22,12 @@ const TeachersPage = () => {
 	return (
 		<div className={styles.teachersPage}>
 			<Container>
-				{!teachers ? (
+				{teachers.length === 0 ? (
 					<Loader />
 				) : (
 					<>
 						<FilterForm />
-						<TeacherCard teachers={teachers} />
+						<TeacherCard teacher={teachers[0]} />
 					</>
 				)}
 			</Container>
