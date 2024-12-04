@@ -1,24 +1,42 @@
 .teacherProfile {
 	display: flex;
+	width: 100%;
+	padding: 24px;
+	align-items: flex-start;
 	gap: 48px;
+	border-radius: 24px;
+	background: $white;
+}
+.teacherHeaderWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+}
+.teacherHeader {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	width: 100%;
 }
 
-// .teacherHeaderContentWrapper {
-// 	display: flex;
-// 	justify-content: space-between;
-// }
+.experience {
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px; /* 150% */
 
-// // .avatarWrapper {
-// // 	position: relative;
-// // }
+	overflow: hidden;
+	max-height: 0;
+	opacity: 0;
+	transition: max-height 0.3s ease, opacity 0.3s ease;
 
-// .teacherHeaderListWrapper {
-// 	display: flex;
-// 	gap: 64px;
-// }
-// .teacherHeaderList {
-// 	display: flex;
-// 	align-items: center;
-// 	justify-content: center;
-// 	gap: 16px;
-// }
+	&.visible {
+		max-height: 1000px;
+		opacity: 1;
+	}
+
+	&.hidden {
+		max-height: 0;
+		opacity: 0;
+	}
+}

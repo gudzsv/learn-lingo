@@ -1,0 +1,83 @@
+.reviewsList {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	overflow: hidden;
+	max-height: 0;
+	opacity: 0;
+	transition: max-height 0.3s ease, opacity 0.3s ease;
+
+	&.visible {
+		max-height: 1000px;
+		opacity: 1;
+	}
+
+	&.hidden {
+		max-height: 0;
+		opacity: 0;
+	}
+}
+
+// .visible {
+// 	gap: 32px;
+// 	max-height: 1000px;
+// 	opacity: 1;
+// }
+
+// .hidden {
+// 	max-height: 0;
+// 	opacity: 0;
+// }
+
+.reviewItem {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 16px;
+}
+
+.reviewerAvatar {
+	border-radius: 100px;
+}
+
+.reviewContent {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+}
+
+.reviewerInfo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 2px;
+}
+
+.ratingWrapper {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.reviewerName {
+	color: $grey;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px; /* 150% */
+}
+
+.ratingValue {
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 18px; /* 128.571% */
+}
+
+.reviewComment {
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px; /* 150% */
+}

@@ -6,7 +6,6 @@ const TeacherDetails = ({ teacher }) => {
 	return (
 		<div className={styles.teacherDetails}>
 			<dl className={styles.detailsList}>
-				{/* Lessons online */}
 				<div className={styles.detailsItem}>
 					<dt className={styles.detailsTitle}>
 						<div className={styles.detailIcon}>
@@ -16,7 +15,6 @@ const TeacherDetails = ({ teacher }) => {
 					<dd className={styles.detailsValue}>Lessons online</dd>
 				</div>
 
-				{/* Lessons done */}
 				<div className={styles.detailsItem}>
 					<dt className={styles.detailsTitle}>Lessons done:</dt>
 					<dd className={styles.detailsValue}>
@@ -24,7 +22,6 @@ const TeacherDetails = ({ teacher }) => {
 					</dd>
 				</div>
 
-				{/* Rating */}
 				<div className={styles.detailsItem}>
 					<dt className={styles.detailsTitle}>
 						<div className={styles.detailIcon}>
@@ -37,7 +34,6 @@ const TeacherDetails = ({ teacher }) => {
 					</dd>
 				</div>
 
-				{/* Price */}
 				<div className={styles.detailsItem}>
 					<dt className={styles.detailsTitle}>Price / 1 hour:</dt>
 					<dd className={`${styles.detailsValue} ${styles.detailsPrice}`}>
