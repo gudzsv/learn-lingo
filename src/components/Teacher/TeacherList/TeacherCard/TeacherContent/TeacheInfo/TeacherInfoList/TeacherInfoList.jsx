@@ -1,7 +1,7 @@
 import clsx from 'clsx';
-import styles from './TeacherInfo.module.scss';
+import styles from './TeacherInfoList.module.scss';
 
-const TeacherInfo = ({ teacher }) => {
+const TeacherInfoList = ({ teacher }) => {
 	const infoItems = [
 		{ label: 'Speaks:', value: teacher.languages.join(', ') },
 		{ label: 'Lesson Info:', value: teacher.lesson_info },
@@ -26,4 +26,4 @@ const TeacherInfo = ({ teacher }) => {
 	);
 };
 
-export default TeacherInfo;
+export default TeacherInfoList;

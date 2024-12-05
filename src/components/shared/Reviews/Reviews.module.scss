@@ -2,32 +2,8 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	overflow: hidden;
-	max-height: 0;
-	opacity: 0;
-	transition: max-height 0.3s ease, opacity 0.3s ease;
-
-	&.visible {
-		max-height: 1000px;
-		opacity: 1;
-	}
-
-	&.hidden {
-		max-height: 0;
-		opacity: 0;
-	}
+	gap: 32px;
 }
-
-// .visible {
-// 	gap: 32px;
-// 	max-height: 1000px;
-// 	opacity: 1;
-// }
-
-// .hidden {
-// 	max-height: 0;
-// 	opacity: 0;
-// }
 
 .reviewItem {
 	display: flex;
@@ -65,19 +41,19 @@
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 500;
-	line-height: 24px; /* 150% */
+	line-height: 24px;
 }
 
 .ratingValue {
 	font-size: 14px;
 	font-style: normal;
 	font-weight: 500;
-	line-height: 18px; /* 128.571% */
+	line-height: 18px;
 }
 
 .reviewComment {
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 500;
-	line-height: 24px; /* 150% */
+	line-height: 24px;
 }

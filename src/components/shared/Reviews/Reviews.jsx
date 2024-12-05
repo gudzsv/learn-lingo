@@ -1,6 +1,6 @@
 import Icon from '../Icon/Icon.jsx';
 import styles from './Reviews.module.scss';
-import blankAvatar from '../../../assets/img/reviews/blank_avatar.png';
+import blankAvatar from '../../../assets/img/reviews/blank_avatar1.png';
 import Avatar from '../Avatar/Avatar.jsx';
 import clsx from 'clsx';
 
@@ -19,7 +19,6 @@ const Reviews = ({ reviews, className }) => {
 							alt={review.reviewer_name}
 							width={44}
 							height={44}
-							// style={{ width: '44px', height: '44px' }}
 							withBorder={false}
 						/>
 						<div className={styles.reviewerInfo}>

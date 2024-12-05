@@ -1,5 +1,5 @@
-import Icon from '../../Icon/Icon.jsx';
-import FavoriteButton from '../../Button/FavoriteButton/FavoriteButton.jsx';
+import Icon from '../../../../../../shared/Icon/Icon.jsx';
+import FavoriteButton from '../../../../../../shared/Button/FavoriteButton/FavoriteButton.jsx';
 import styles from './TeacherDetails.module.scss';
 
 const TeacherDetails = ({ teacher }) => {

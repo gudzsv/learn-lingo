@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { DROPDOWNS } from '../../../constants/constants.js';
 import styles from './FilterForm.module.scss';
-import Dropdown from '../../../components/shared/Dropdown/Dropdown.jsx';
+import Dropdown from '../../shared/Dropdown/Dropdown.jsx';
 import { useForm } from 'react-hook-form';
 
 const FilterForm = () => {
@@ -33,9 +33,9 @@ const FilterForm = () => {
 					items={dropdown.items}
 					activeDropdownId={activeDropdownId}
 					setActiveDropdownId={setActiveDropdownId}
-					value={watch(dropdown.id)} // Слідкуємо за значенням
-					setValue={setValue} // Оновлюємо значення в формі
-					register={register} // Регіструємо поле у формі
+					value={watch(dropdown.id)}
+					setValue={setValue}
+					register={register}
 				/>
 			))}
 			<button type='submit'>Submit</button>
