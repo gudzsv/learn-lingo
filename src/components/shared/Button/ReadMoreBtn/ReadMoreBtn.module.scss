@@ -10,4 +10,19 @@
 	text-underline-offset: auto;
 	text-underline-position: from-font;
 	margin-top: 16px;
+
+	@include desktop {
+		font-size: 14px;
+		margin-top: 14px;
+	}
+
+	@include tablet {
+		font-size: 12px;
+		margin-top: 12px;
+	}
+
+	@include mobile {
+		font-size: 12px;
+		margin-top: 12px;
+	}
 }

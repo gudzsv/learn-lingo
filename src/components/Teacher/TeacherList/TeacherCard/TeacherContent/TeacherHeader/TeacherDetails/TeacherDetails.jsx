@@ -1,8 +1,20 @@
 import Icon from '../../../../../../shared/Icon/Icon.jsx';
 import FavoriteButton from '../../../../../../shared/Button/FavoriteButton/FavoriteButton.jsx';
 import styles from './TeacherDetails.module.scss';
+import { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFilteredTeachers } from '../../../../../../../redux/teachers/selectors.js';
+import { updateFavorite } from '../../../../../../../redux/teachers/slice.js';
 
 const TeacherDetails = ({ teacher }) => {
+	const teachers = useSelector(selectFilteredTeachers);
+
+	const dispatch = useDispatch();
+
+	const handleToggleFavorite = () => {
+		dispatch(updateFavorite(teacher));
+	};
+
 	return (
 		<div className={styles.teacherDetails}>
 			<dl className={styles.detailsList}>
@@ -44,7 +56,10 @@ const TeacherDetails = ({ teacher }) => {
 				</div>
 			</dl>
 			<div className={styles.favoriteButtonWrapper}>
-				<FavoriteButton />
+				<FavoriteButton
+					onClick={handleToggleFavorite}
+					isFavorite={teacher?.favorite}
+				/>
 			</div>
 		</div>
 	);

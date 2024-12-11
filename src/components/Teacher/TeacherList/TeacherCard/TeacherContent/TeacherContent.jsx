@@ -6,7 +6,7 @@ import LanguageLevels from '../../../../shared/LanguageLevel/LanguageLevels.jsx'
 import Button from '../../../../shared/Button/Button.jsx';
 import styles from './TeacherContent.module.scss';
 
-const TeacherContent = ({ teacher, teacherFullName }) => {
+const TeacherContent = ({ teacher, teacherId, teacherFullName }) => {
 	const [isHidden, setIsHidden] = useState(true);
 
 	const handleReadMore = () => {
@@ -24,9 +24,12 @@ const TeacherContent = ({ teacher, teacherFullName }) => {
 
 			{!isHidden && <Reviews reviews={teacher.reviews} />}
 
-			<LanguageLevels levels={teacher.levels} />
+			<LanguageLevels
+				levels={teacher.levels}
+				groupName={`teacher-${teacherId}`}
+			/>
 
-			{!isHidden && <Button text={'Book trial lesson'} />}
+			{!isHidden && <Button text={'Book trial lesson'} className={'bookBtn'} />}
 		</div>
 	);
 };

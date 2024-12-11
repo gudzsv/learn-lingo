@@ -4,11 +4,16 @@
 	height: 12px;
 	flex-shrink: 0;
 	border-radius: 50%;
-	border: 2px solid $white; /* Обвід для контрасту */
+	border: 2px solid $white;
 	top: 19px;
 	left: 85px;
-	// background-color: gray; /* Статус за замовчуванням */
-	// transition: background-color 0.3s ease;
+
+	@include tablet {
+		width: 10px;
+		height: 10px;
+		top: 16px;
+		left: 70px;
+	}
 }
 
 .badge.active {

@@ -1,28 +1,29 @@
 import React, { useState } from 'react';
-
 import { DROPDOWNS } from '../../../constants/constants.js';
 import styles from './FilterForm.module.scss';
 import Dropdown from '../../shared/Dropdown/Dropdown.jsx';
 import { useForm } from 'react-hook-form';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFilters } from '../../../redux/teachers/selectors.js';
 
 const FilterForm = () => {
-	const defaultValues = DROPDOWNS.reduce((acc, dropdown) => {
-		acc[dropdown.id] = dropdown.items[0];
-		return acc;
-	}, {});
+	const filter = useSelector(selectFilters);
+	// const dispatch = useDispatch();
+	// const defaultValues = DROPDOWNS.reduce((acc, dropdown) => {
+	// 	acc[dropdown.id] = dropdown.items[0];
+	// 	return acc;
+	// }, {});
 
-	const { register, setValue, watch, handleSubmit } = useForm({
-		defaultValues,
-	});
+	// const { register, setValue, watch, handleSubmit } = useForm(filter);
+
 	const [activeDropdownId, setActiveDropdownId] = useState('');
-
-	const onSubmit = (data) => {
-		console.log('Form data:', data);
-	};
+	console.log('activeDropdownId: ', activeDropdownId);
 
 	return (
 		<form
-			onSubmit={handleSubmit(onSubmit)}
+			onSubmit={(e) => e.preventDefault()}
+			// onSubmit={handleSubmit(onSubmit)}
+			// onKeyDown={handleKeyPress}
 			className={styles.dropdownContainer}
 		>
 			{DROPDOWNS.map((dropdown) => (
@@ -33,12 +34,11 @@ const FilterForm = () => {
 					items={dropdown.items}
 					activeDropdownId={activeDropdownId}
 					setActiveDropdownId={setActiveDropdownId}
-					value={watch(dropdown.id)}
-					setValue={setValue}
-					register={register}
+					// value={watch(dropdown.id)}
+					// setValue={setValue}
+					// register={register}
 				/>
 			))}
-			<button type='submit'>Submit</button>
 		</form>
 	);
 };

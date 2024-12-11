@@ -14,5 +14,11 @@ export const DROPDOWNS = [
 			'B2 Upper-Intermediate',
 		],
 	},
-	{ id: 'prices', label: 'Price', items: ['10', '20', '30', '40'] },
+	{ id: 'price_per_hour', label: 'Price', items: ['10', '20', '30', '40'] },
 ];
+
+export const initialFilter = {
+	languages: 'English',
+	levels: 'A1 Beginner',
+	price_per_hour: '40',
+};

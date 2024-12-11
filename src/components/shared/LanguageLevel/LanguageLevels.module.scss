@@ -2,17 +2,15 @@
 	display: flex;
 	align-items: flex-start;
 	gap: 8px;
-}
 
-// .radioItem {
-// 	display: flex;
-// 	padding: 8px 12px;
-// 	justify-content: center;
-// 	align-items: center;
-// 	gap: 4px;
-// 	border-radius: 35px;
-// 	border: 1px solid rgba(18, 20, 23, 0.2);
-// }
+	@include tablet {
+		flex-wrap: wrap;
+	}
+
+	@include mobile {
+		flex-wrap: wrap;
+	}
+}
 
 .radioLabel {
 	display: flex;
@@ -26,10 +24,22 @@
 	font-size: 14px;
 	font-style: normal;
 	font-weight: 500;
-	line-height: 16px; /* 114.286% */
+	line-height: 1.14;
 	cursor: pointer;
 	background-color: transparent;
 	transition: background-color $animation-cubic;
+
+	@include desktop {
+		font-size: 12px;
+	}
+
+	@include tablet {
+		font-size: 12px;
+	}
+
+	@include mobile {
+		font-size: 12px;
+	}
 }
 
 .radioInput {

@@ -2,12 +2,50 @@
 	display: flex;
 	align-items: center;
 	gap: 64px;
+
+	@include desktop {
+		gap: 34px;
+	}
+
+	@include tablet {
+		// gap: 34px;
+		justify-content: space-between;
+	}
+
+	@include mobile {
+		position: absolute;
+		top: 100px;
+		right: 24px;
+	}
 }
 
 .detailsList {
 	display: flex;
 	align-items: center;
 	gap: 16px;
+
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.5;
+
+	@include desktop {
+		gap: 8px;
+
+		font-size: 14px;
+	}
+
+	@include tablet {
+		font-size: 12px;
+		gap: 8px;
+	}
+
+	@include mobile {
+		gap: 0;
+		font-size: 12px;
+		flex-direction: column;
+		align-items: flex-start;
+	}
 }
 
 .detailsItem {
@@ -20,41 +58,66 @@
 		height: fit-content;
 		display: inline-block;
 		margin-left: 16px;
-
 		color: gray;
+
+		@include desktop {
+			margin-left: 8px;
+		}
+
+		@include tablet {
+			margin-left: 8px;
+		}
+
+		@include mobile {
+			content: '';
+			width: 0;
+			margin: 0;
+		}
 	}
 }
 
 .detailsTitle {
 	display: flex;
 	align-items: center;
-
 	color: $main-black;
-
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 24px; /* 150% */
 }
 
 .detailIcon {
 	display: flex;
 	align-items: center;
 	margin-right: 8px;
+
+	@include mobile {
+		display: none;
+	}
 }
 
 .detailsValue {
 	display: flex;
 	align-items: center;
 	color: $main-black;
-
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 500;
-	line-height: 24px; /* 150% */
 	margin-left: 4px;
+
+	@include tablet {
+		margin-left: 0;
+	}
+
+	@include mobile {
+		margin-left: 0;
+	}
 }
 
 .detailsPrice {
 	color: $green;
+}
+
+.favoriteButtonWrapper {
+	// position: absolute;
+	// top: -56px;
+	// left: 86px;
+	@include mobile {
+		position: absolute;
+		top: -77px;
+		right: 0px;
+	}
 }

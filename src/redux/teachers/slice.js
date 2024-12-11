@@ -1,8 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getAllTeachers } from './operations.js';
+import { getAllTeachers, toggleFavorite } from './operations.js';
+import { initialFilter } from '../../constants/constants.js';
 
 const initialState = {
-	items: [], // Масив для списку вчителів
+	items: [],
+	filter: initialFilter,
+	languageLevel: 'A1 Beginner',
 	isLoading: false,
 	error: null,
 };
@@ -10,6 +13,21 @@ const initialState = {
 const teachersSlice = createSlice({
 	name: 'teachers',
 	initialState,
+
+	reducers: {
+		setFilter(state, action) {
+			state.filter = action.payload;
+		},
+		resetFilter(state, action) {
+			state.filter = action.payload;
+		},
+		setLanguageLevel(state, action) {
+			state.languageLevel = action.payload;
+		},
+		updateFavorite(state, action) {
+			state.items = toggleFavorite(state.items, action.payload);
+		},
+	},
 
 	extraReducers: (builder) => {
 		const handlePending = (state) => {
@@ -19,7 +37,7 @@ const teachersSlice = createSlice({
 
 		const handleFulfilled = (state, action) => {
 			state.isLoading = false;
-			state.items = action.payload; // Зберігаємо список
+			state.items = action.payload;
 		};
 
 		const handleRejected = (state, action) => {
@@ -33,5 +51,8 @@ const teachersSlice = createSlice({
 			.addCase(getAllTeachers.rejected, handleRejected);
 	},
 });
+
+export const { setFilter, resetFilter, setLanguageLevel, updateFavorite } =
+	teachersSlice.actions;
 
 export const teachersReducer = teachersSlice.reducer;

@@ -17,9 +17,10 @@ const Reviews = ({ reviews, className }) => {
 						<Avatar
 							src={blankAvatar}
 							alt={review.reviewer_name}
-							width={44}
-							height={44}
+							// width={44}
+							// height={44}
 							withBorder={false}
+							className={'reviewPhoto'}
 						/>
 						<div className={styles.reviewerInfo}>
 							<span className={styles.reviewerName}>

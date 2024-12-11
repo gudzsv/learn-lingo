@@ -3,5 +3,20 @@
 	font-size: 16px;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 24px;
+	line-height: 1.5;
+
+	@include desktop {
+		font-size: 14px;
+		margin-top: 14px;
+	}
+
+	@include tablet {
+		font-size: 12px;
+		margin-top: 12px;
+	}
+
+	@include mobile {
+		font-size: 12px;
+		margin-top: 12px;
+	}
 }

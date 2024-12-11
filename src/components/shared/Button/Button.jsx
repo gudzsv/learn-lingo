@@ -13,20 +13,11 @@ const Button = ({
 	ariaPressed,
 	isLoading,
 }) => {
-	// const [isLoading, setIsLoading] = useState(false);
-	// const handleClick = () => {
-	// 	console.log('CLICK', isLoading);
-
-	// 	setIsLoading(true);
-	// 	setTimeout(() => {
-	// 		setIsLoading(false);
-	// 	}, 2000);
-	// };
 	return (
 		<button
 			form={form}
 			type={type}
-			// onClick={onClick}
+			onClick={onClick}
 			className={clsx(styles.button, styles[className], {
 				[styles.disabled]: isDisabled,
 				[styles.loading]: isLoading,

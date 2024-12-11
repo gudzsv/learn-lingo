@@ -5,13 +5,7 @@ import styles from './TeacherAvatar.module.scss';
 const TeacherAvatar = ({ avatarUrl, fullName, isActive }) => {
 	return (
 		<div className={styles.avatarWrapper}>
-			<Avatar
-				src={avatarUrl}
-				alt={fullName}
-				width={96}
-				height={96}
-				withBorder={true}
-			/>
+			<Avatar src={avatarUrl} alt={fullName} withBorder={true} />
 			<StatusBadge isActive={true} />
 		</div>
 	);

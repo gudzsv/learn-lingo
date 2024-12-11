@@ -1,3 +1,6 @@
 .avatarWrapper {
 	position: relative;
+	@include mobile {
+		height: 150px;
+	}
 }

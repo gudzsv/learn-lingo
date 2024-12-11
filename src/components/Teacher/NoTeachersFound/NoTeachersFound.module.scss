@@ -1,0 +1,33 @@
+.noTeachersContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+	background-color: $white;
+	// border: 1px solid $secondary-light-black-02;
+	border-radius: 14px;
+	margin-top: 1rem;
+}
+
+.message {
+	font-size: 1.2rem;
+	color: $main-black;
+	margin-bottom: 1rem;
+	text-align: center;
+}
+
+.resetButton {
+	background-color: #9be1a0;
+	color: white;
+	border: none;
+	padding: 0.8rem 1.2rem;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 1rem;
+	transition: background-color 0.3s ease;
+}
+
+.resetButton:hover {
+	background-color: #87cc8c;
+}

@@ -30,3 +30,14 @@
 	height: 20px;
 	pointer-events: none; /* Щоб стрілка не заважала клікам */
 }
+
+.favorite {
+	width: 18px;
+	height: 18px;
+	stroke: $main-black;
+	transition: stroke $animation-cubic;
+
+	&.isActive {
+		stroke: red;
+	}
+}

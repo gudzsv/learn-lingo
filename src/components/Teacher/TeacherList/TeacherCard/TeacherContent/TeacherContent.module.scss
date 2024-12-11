@@ -3,4 +3,16 @@
 	flex-direction: column;
 	gap: 32px;
 	width: 100%;
+
+	@include desktop {
+		gap: 24px;
+	}
+
+	@include tablet {
+		gap: 18px;
+	}
+
+	@include mobile {
+		gap: 18px;
+	}
 }

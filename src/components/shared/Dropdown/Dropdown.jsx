@@ -1,7 +1,11 @@
+import { useCallback, useMemo } from 'react';
 import useDropdown from '../../../hooks/useDropdown.js';
-import Icon from '../Icon/Icon';
+import { setFilter } from '../../../redux/teachers/slice.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFilters } from '../../../redux/teachers/selectors.js';
+import DropdownMenu from './DropdownMenu/DropdownMenu.jsx';
+import DropdownButton from './DropdownButton/DropdownButton.jsx';
 import styles from './Dropdown.module.scss';
-import clsx from 'clsx';
 
 const Dropdown = ({
 	id,
@@ -9,44 +13,44 @@ const Dropdown = ({
 	items,
 	activeDropdownId,
 	setActiveDropdownId,
-	value,
-	setValue,
-	register,
+	// value,
+	// setValue,
+	// register,
 }) => {
-	const { isOpen, selectedItem, toggleDropdown, handleSelect } = useDropdown(
-		value || items[0],
-		id,
-		activeDropdownId,
-		setActiveDropdownId
+	const filter = useSelector(selectFilters);
+
+	const { isOpen, selectedItem, toggleDropdown, handleSelect, dropdownRef } =
+		useDropdown(filter[id], id, activeDropdownId, setActiveDropdownId);
+
+	const dispatch = useDispatch();
+
+	const handleItemSelect = useCallback(
+		(item) => {
+			handleSelect(item);
+			// setValue(id, item);
+			dispatch(setFilter({ ...filter, [id]: item }));
+		},
+		[handleSelect, id, filter, dispatch]
 	);
 
-	const handleItemSelect = (item) => {
-		handleSelect(item);
-		setValue(id, item);
-	};
+	const memoizedItems = useMemo(() => items, [items]);
 
 	return (
-		<div className={styles.dropdown} data-dropdown-id={id}>
+		<div ref={dropdownRef} className={styles.dropdown} data-dropdown-id={id}>
 			<p className={styles.dropdownLabel}>{label}</p>
-			<button onClick={toggleDropdown} className={styles.dropdownButton}>
-				{id === 'prices' ? selectedItem + ' $' : selectedItem}
-				<Icon iconName={'arrow-down'} />
-			</button>
+
+			<DropdownButton
+				onClick={toggleDropdown}
+				selectedItem={selectedItem}
+				id={id}
+			/>
 
 			{isOpen && (
-				<ul className={styles.dropdownMenu}>
-					{items.map((item, index) => (
-						<li
-							key={index}
-							onClick={() => handleItemSelect(item)}
-							className={clsx(styles.dropdownItem, {
-								[styles.activeItem]: item === selectedItem,
-							})}
-						>
-							{item}
-						</li>
-					))}
-				</ul>
+				<DropdownMenu
+					items={memoizedItems}
+					selectedItem={selectedItem}
+					onItemSelect={handleItemSelect}
+				/>
 			)}
 		</div>
 	);

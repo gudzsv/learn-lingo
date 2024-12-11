@@ -1,13 +1,17 @@
-import React from 'react';
 import FilterForm from './FilterForm/FilterForm.jsx';
+import NoTeachersFound from './NoTeachersFound/NoTeachersFound.jsx';
 import TeacherList from './TeacherList/TeacherList.jsx';
 
 const Teacher = ({ teachers }) => {
 	return (
-		<div>
+		<section>
 			<FilterForm />
-			<TeacherList teachers={teachers} />
-		</div>
+			{teachers && teachers.length > 0 ? (
+				<TeacherList teachers={teachers} />
+			) : (
+				<NoTeachersFound />
+			)}
+		</section>
 	);
 };
 

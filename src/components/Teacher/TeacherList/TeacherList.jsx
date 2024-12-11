@@ -5,8 +5,8 @@ const TeacherList = ({ teachers }) => {
 	return (
 		<ul className={styles.teacherList}>
 			{teachers.map((teacher, idx) => (
-				<li className={styles.teacherItem} key={idx}>
-					<TeacherCard teacher={teacher} />
+				<li className={styles.teacherItem} key={teacher.id}>
+					<TeacherCard teacher={teacher} teacherId={teacher.id} />
 				</li>
 			))}
 		</ul>

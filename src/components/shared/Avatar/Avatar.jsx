@@ -1,6 +1,15 @@
 import React from 'react';
 import styles from './Avatar.module.scss';
-const Avatar = ({ src, alt, width, height, withBorder = false, style }) => {
+import clsx from 'clsx';
+const Avatar = ({
+	src,
+	alt,
+	width,
+	height,
+	withBorder = false,
+	style,
+	className,
+}) => {
 	return (
 		<div
 			className={`${styles.teacherPhotoWrapper} ${
@@ -11,7 +20,7 @@ const Avatar = ({ src, alt, width, height, withBorder = false, style }) => {
 			<img
 				src={src}
 				alt={`Portrait of ${alt}`}
-				className={styles.teacherPhoto}
+				className={clsx(styles.teacherPhoto, styles[className])}
 				width={width}
 				height={height}
 				style={style}

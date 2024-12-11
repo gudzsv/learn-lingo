@@ -24,3 +24,11 @@ export const getAllTeachers = createAsyncThunk(
 		}
 	}
 );
+
+export const toggleFavorite = (data, teacher) => {
+	return data.map((item) =>
+		item.id === teacher.id
+			? { ...item, favorite: !item.favorite ?? false }
+			: item
+	);
+};

@@ -1,0 +1,28 @@
+.dropdownButton {
+	padding: 14px 18px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 32px;
+	border-radius: 14px;
+	background-color: $white;
+	cursor: pointer;
+	color: $main-black;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.11;
+
+	@include mobile {
+		font-size: 14px;
+		justify-content: space-between;
+		padding: 8px 12px;
+	}
+
+	@include tablet {
+		font-size: 14px;
+		justify-content: space-between;
+		padding: 8px 12px;
+	}
+}

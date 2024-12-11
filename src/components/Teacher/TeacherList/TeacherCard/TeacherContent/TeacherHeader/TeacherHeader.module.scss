@@ -3,4 +3,9 @@
 	align-items: flex-start;
 	justify-content: space-between;
 	width: 100%;
+
+	@include tablet {
+		flex-direction: column;
+		gap: 8px;
+	}
 }

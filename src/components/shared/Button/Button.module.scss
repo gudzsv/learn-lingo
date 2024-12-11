@@ -33,6 +33,10 @@
 		max-width: fit-content;
 		padding: 16px 40px;
 	}
+
+	@include desktop {
+		font-size: 16px;
+	}
 }
 
 .spinner {
@@ -58,5 +62,16 @@
 
 	@include tabletAndLarger {
 		font-size: 18px;
+	}
+}
+.bookBtn {
+	@include tablet {
+		font-size: 12px;
+		padding: 10px 30px;
+	}
+
+	@include mobile {
+		font-size: 14px;
+		padding: 10px 30px;
 	}
 }
