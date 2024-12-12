@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getAllTeachers, toggleFavorite } from './operations.js';
-import { initialFilter } from '../../constants/constants.js';
+import { INITIAL_FILTER } from '../../constants/constants.js';
 
 const initialState = {
 	items: [],
-	filter: initialFilter,
+	filter: INITIAL_FILTER,
 	languageLevel: 'A1 Beginner',
 	isLoading: false,
 	error: null,

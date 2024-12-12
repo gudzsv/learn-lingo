@@ -37,6 +37,14 @@
 	@include desktop {
 		font-size: 16px;
 	}
+	@include tablet {
+		font-size: 12px;
+		padding: 10px 30px;
+	}
+
+	@include mobile {
+		font-size: 14px;
+	}
 }
 
 .spinner {
@@ -74,4 +82,8 @@
 		font-size: 14px;
 		padding: 10px 30px;
 	}
+}
+
+.loadMore {
+	margin: 64px auto;
 }

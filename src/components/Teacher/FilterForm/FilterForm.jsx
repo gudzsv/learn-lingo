@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DROPDOWNS } from '../../../constants/constants.js';
 import styles from './FilterForm.module.scss';
-import Dropdown from '../../shared/Dropdown/Dropdown.jsx';
+import Dropdown from '../../Shared/Dropdown/Dropdown.jsx';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFilters } from '../../../redux/teachers/selectors.js';

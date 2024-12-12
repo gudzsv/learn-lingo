@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import TeacherHeader from './TeacherHeader/TeacherHeader.jsx';
 import TeacherInfo from './TeacheInfo/TeacherInfo.jsx';
-import Reviews from '../../../../shared/Reviews/Reviews.jsx';
-import LanguageLevels from '../../../../shared/LanguageLevel/LanguageLevels.jsx';
-import Button from '../../../../shared/Button/Button.jsx';
+import Reviews from '../../../../Shared/Reviews/Reviews.jsx';
+import LanguageLevels from '../../../../Shared/LanguageLevel/LanguageLevels.jsx';
+import Button from '../../../../Shared/Button/Button.jsx';
 import styles from './TeacherContent.module.scss';
 
 const TeacherContent = ({ teacher, teacherId, teacherFullName }) => {

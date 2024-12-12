@@ -1,5 +1,5 @@
-import Icon from '../../../../../../shared/Icon/Icon.jsx';
-import FavoriteButton from '../../../../../../shared/Button/FavoriteButton/FavoriteButton.jsx';
+import Icon from '../../../../../../Shared/Icon/Icon.jsx';
+import FavoriteButton from '../../../../../../Shared/Button/FavoriteButton/FavoriteButton.jsx';
 import styles from './TeacherDetails.module.scss';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

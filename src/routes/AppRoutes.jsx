@@ -2,8 +2,6 @@ import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router';
 import Loader from '../components/Shared/Loader/Loader.jsx';
 import Layout from '../components/Shared/Layout/Layout.jsx';
-
-import RestrictedRoute from './RestrictedRoute.jsx';
 import PrivateRoute from './PrivateRoute.jsx';
 
 const HomePage = lazy(() => import('../pages/HomePage/HomePage.jsx'));
@@ -20,9 +18,7 @@ const AppRoutes = () => {
 			<Routes>
 				<Route path='/' element={<Layout />}>
 					<Route index element={<HomePage />} />
-					{/* <Route element={<RestrictedRoute />}> */}
 					<Route path='teachers' element={<TeachersPage />} />
-					{/* </Route> */}
 					<Route element={<PrivateRoute />}>
 						<Route path='favorites' element={<FavoritesPage />} />
 					</Route>

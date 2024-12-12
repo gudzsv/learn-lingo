@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styles from './MobileMenu.module.scss';
 import Logo from '../../Shared/Logo/Logo.jsx';
-import CloseBtn from '../../shared/Button/CloseBtn/CloseBtn.jsx';
+import CloseBtn from '../../Shared/Button/CloseBtn/CloseBtn.jsx';
 import AuthControls from '../../Shared/AuthControls/AuthControls.jsx';
 import Navigation from '../../Shared/Navigation/Navigation.jsx';
 

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styles from './Hero.module.scss';
-import Icon from '../Shared/Icon/Icon';
+import Icon from '../Shared/Icon/Icon.jsx';
 import LaptopImg from './LaptopImg/LaptopImg.jsx';
 
 const Hero = () => {

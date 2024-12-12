@@ -1,16 +1,41 @@
+import Button from '../Shared/Button/Button.jsx';
 import FilterForm from './FilterForm/FilterForm.jsx';
 import NoTeachersFound from './NoTeachersFound/NoTeachersFound.jsx';
 import TeacherList from './TeacherList/TeacherList.jsx';
+import { useMemo, useState } from 'react';
+import styles from './Teacher.module.scss';
+import { INITIAL_VISIBLE_CARDS } from '../../constants/constants.js';
 
 const Teacher = ({ teachers }) => {
+	const [visibleCards, setVisibleCards] = useState(INITIAL_VISIBLE_CARDS);
+
+	const handleLoadMore = () => {
+		setVisibleCards((prevCount) => prevCount + INITIAL_VISIBLE_CARDS);
+	};
+
+	const hasMore = useMemo(
+		() => visibleCards < teachers.length,
+		[visibleCards, teachers.length]
+	);
+
+	const visibleTeachers = useMemo(() => {
+		return teachers.slice(0, visibleCards);
+	}, [teachers, visibleCards]);
+
 	return (
-		<section>
+		<section className={styles.teacherSection}>
 			<FilterForm />
 			{teachers && teachers.length > 0 ? (
-				<TeacherList teachers={teachers} />
+				<TeacherList teachers={visibleTeachers} />
 			) : (
 				<NoTeachersFound />
 			)}
+			<Button
+				text='Load more'
+				className={'loadMore'}
+				onClick={handleLoadMore}
+				isDisabled={!hasMore}
+			/>
 		</section>
 	);
 };

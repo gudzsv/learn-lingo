@@ -17,8 +17,10 @@ export const DROPDOWNS = [
 	{ id: 'price_per_hour', label: 'Price', items: ['10', '20', '30', '40'] },
 ];
 
-export const initialFilter = {
+export const INITIAL_FILTER = {
 	languages: 'English',
 	levels: 'A1 Beginner',
 	price_per_hour: '40',
 };
+
+export const INITIAL_VISIBLE_CARDS = 4;
