@@ -30,12 +30,13 @@ const Teacher = ({ teachers }) => {
 			) : (
 				<NoTeachersFound />
 			)}
-			<Button
-				text='Load more'
-				className={'loadMore'}
-				onClick={handleLoadMore}
-				isDisabled={!hasMore}
-			/>
+			{hasMore && (
+				<Button
+					text='Load more'
+					className={'loadMore'}
+					onClick={handleLoadMore}
+				/>
+			)}
 		</section>
 	);
 };

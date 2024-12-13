@@ -1,14 +1,10 @@
 import Icon from '../../../../../../Shared/Icon/Icon.jsx';
 import FavoriteButton from '../../../../../../Shared/Button/FavoriteButton/FavoriteButton.jsx';
 import styles from './TeacherDetails.module.scss';
-import { useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectFilteredTeachers } from '../../../../../../../redux/teachers/selectors.js';
+import { useDispatch } from 'react-redux';
 import { updateFavorite } from '../../../../../../../redux/teachers/slice.js';
 
 const TeacherDetails = ({ teacher }) => {
-	const teachers = useSelector(selectFilteredTeachers);
-
 	const dispatch = useDispatch();
 
 	const handleToggleFavorite = () => {
@@ -59,6 +55,9 @@ const TeacherDetails = ({ teacher }) => {
 				<FavoriteButton
 					onClick={handleToggleFavorite}
 					isFavorite={teacher?.favorite}
+					ariaLabel={
+						teacher.favorite ? 'Remove from favorites' : 'Add to favorites'
+					}
 				/>
 			</div>
 		</div>

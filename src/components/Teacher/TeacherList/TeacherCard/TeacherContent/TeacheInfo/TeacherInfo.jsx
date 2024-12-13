@@ -7,8 +7,11 @@ const TeacherInfo = ({ teacher, isHidden, handleReadMore }) => {
 	return (
 		<div className={styles.teacherInfoWrapper}>
 			<TeacherInfoList teacher={teacher} />
-			{!isHidden && <TeacherExperience experience={teacher.experience} />}
-			{isHidden && <ReadMoreBtn handleReadMore={handleReadMore} />}
+			{!isHidden ? (
+				<TeacherExperience experience={teacher.experience} />
+			) : (
+				<ReadMoreBtn handleReadMore={handleReadMore} />
+			)}
 		</div>
 	);
 };

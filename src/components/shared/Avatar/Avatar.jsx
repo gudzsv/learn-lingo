@@ -12,14 +12,15 @@ const Avatar = ({
 }) => {
 	return (
 		<div
-			className={`${styles.teacherPhotoWrapper} ${
-				withBorder ? styles.teacherPhotoBorder : ''
-			}`}
+			className={clsx(styles.teacherPhotoWrapper, {
+				[styles.teacherPhotoBorder]: withBorder,
+			})}
 			role='presentation'
+			aria-hidden='true'
 		>
 			<img
 				src={src}
-				alt={`Portrait of ${alt}`}
+				alt={alt ? `Portrait of ${alt}` : 'Avatar image'}
 				className={clsx(styles.teacherPhoto, styles[className])}
 				width={width}
 				height={height}

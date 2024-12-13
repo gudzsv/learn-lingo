@@ -12,7 +12,7 @@ import Teacher from '../../components/Teacher/Teacher.jsx';
 
 const TeachersPage = () => {
 	const dispatch = useDispatch();
-	const teachers = useSelector(selectAllTeachers);
+	// const teachers = useSelector(selectAllTeachers);
 	const filteredTeacher = useSelector(selectFilteredTeachers);
 
 	useEffect(() => {
@@ -24,11 +24,11 @@ const TeachersPage = () => {
 	return (
 		<div className={styles.teachersPage}>
 			<Container>
-				{filteredTeacher.length === 0 ? (
+				{/* {teachers.length === 0 ? (
 					<Loader />
-				) : (
-					<Teacher teachers={filteredTeacher} />
-				)}
+				) : ( */}
+				<Teacher teachers={filteredTeacher} />
+				{/* )} */}
 			</Container>
 		</div>
 	);

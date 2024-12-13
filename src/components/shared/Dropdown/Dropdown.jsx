@@ -13,9 +13,6 @@ const Dropdown = ({
 	items,
 	activeDropdownId,
 	setActiveDropdownId,
-	// value,
-	// setValue,
-	// register,
 }) => {
 	const filter = useSelector(selectFilters);
 
@@ -27,7 +24,6 @@ const Dropdown = ({
 	const handleItemSelect = useCallback(
 		(item) => {
 			handleSelect(item);
-			// setValue(id, item);
 			dispatch(setFilter({ ...filter, [id]: item }));
 		},
 		[handleSelect, id, filter, dispatch]

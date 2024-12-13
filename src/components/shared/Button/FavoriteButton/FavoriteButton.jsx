@@ -1,12 +1,11 @@
 import Icon from '../../Icon/Icon.jsx';
 import styles from './FavoriteButton.module.scss';
 
-const FavoriteButton = ({ onClick, isFavorite }) => {
-	console.log('isFavorite: ', isFavorite);
+const FavoriteButton = ({ onClick, isFavorite, ariaLabel }) => {
 	return (
 		<button
 			className={styles.favoriteButton}
-			aria-label='Add to favorites'
+			aria-label={ariaLabel}
 			onClick={onClick}
 		>
 			<Icon

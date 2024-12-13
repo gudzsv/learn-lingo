@@ -15,15 +15,16 @@ const Reviews = ({ reviews, className }) => {
 				<li key={idx} className={styles.reviewItem}>
 					<div className={styles.reviewContent}>
 						<Avatar
-							src={blankAvatar}
+							src={review?.avatar || blankAvatar}
 							alt={review.reviewer_name}
-							// width={44}
-							// height={44}
 							withBorder={false}
 							className={'reviewPhoto'}
 						/>
 						<div className={styles.reviewerInfo}>
-							<span className={styles.reviewerName}>
+							<span
+								className={styles.reviewerName}
+								aria-label={`Reviewer: ${review.reviewer_name}`}
+							>
 								{review.reviewer_name}
 							</span>
 							<div className={styles.ratingWrapper}>

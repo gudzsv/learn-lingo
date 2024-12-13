@@ -1,6 +1,7 @@
-import styles from './TeacherCard.module.scss';
 import TeacherAvatar from './TeacherAvatar/TeacherAvatar.jsx';
 import TeacherContent from './TeacherContent/TeacherContent.jsx';
+import { useMemo } from 'react';
+import styles from './TeacherCard.module.scss';
 
 const TeacherCard = ({ teacher }) => {
 	const teacherFullName = useMemo(
@@ -9,17 +10,13 @@ const TeacherCard = ({ teacher }) => {
 	);
 
 	return (
-		<section className={styles.teacherCard}>
+		<div className={styles.teacherCard}>
 			<TeacherAvatar
 				avatarUrl={teacher.avatar_url}
 				fullName={teacherFullName}
 			/>
-			<TeacherContent
-				teacher={teacher}
-				teacherId={teacher.id}
-				teacherFullName={teacherFullName}
-			/>
-		</section>
+			<TeacherContent teacher={teacher} teacherFullName={teacherFullName} />
+		</div>
 	);
 };
 
