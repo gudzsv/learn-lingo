@@ -49,3 +49,12 @@ div,
 button {
 	user-select: none;
 }
+
+.error {
+	color: $error;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.29;
+	letter-spacing: -0.14px;
+	margin-top: 10px;
+}

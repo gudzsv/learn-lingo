@@ -1,8 +1,8 @@
-import Icon from '../../../../../../Shared/Icon/Icon.js';
-import FavoriteButton from '../../../../../../Shared/Button/FavoriteButton/FavoriteButton.js';
-import styles from './TeacherDetails.module.scss';
 import { useDispatch } from 'react-redux';
 import { updateFavorite } from '../../../../../../../redux/teachers/slice.js';
+import FavoriteButton from '../../../../../../Shared/Button/FavoriteButton/FavoriteButton.jsx';
+import Icon from '../../../../../../Shared/Icon/Icon.jsx';
+import styles from './TeacherDetails.module.scss';
 
 const TeacherDetails = ({ teacher }) => {
 	const dispatch = useDispatch();

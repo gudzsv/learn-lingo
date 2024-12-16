@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
+import { INITIAL_FILTER } from '../../../constants/constants.js';
+import { resetFilter } from '../../../redux/teachers/slice.js';
 import Button from '../../Shared/Button/Button.jsx';
 import styles from './NoTeachersFound.module.scss';
-import { resetFilter } from '../../../redux/teachers/slice.js';
-import { INITIAL_FILTER } from '../../../constants/constants.js';
 
 const NoTeachersFound = ({
 	message = 'No teachers match your criteria. Please adjust the filters and try again.',

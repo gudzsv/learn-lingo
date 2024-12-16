@@ -23,4 +23,16 @@ export const INITIAL_FILTER = {
 	price_per_hour: '40',
 };
 
+export const REASONS = [
+	{ id: 'career', value: 'career_and_business', label: 'Career and business' },
+	{ id: 'lesson', value: 'lesson_for_kids', label: 'Lesson for kids' },
+	{ id: 'living', value: 'living_abroad', label: 'Living abroad' },
+	{ id: 'exams', value: 'exams_and_coursework', label: 'Exams and coursework' },
+	{
+		id: 'culture',
+		value: 'culture_travel_or_hobby',
+		label: 'Culture, travel or hobby',
+	},
+];
+
 export const INITIAL_VISIBLE_CARDS = 4;

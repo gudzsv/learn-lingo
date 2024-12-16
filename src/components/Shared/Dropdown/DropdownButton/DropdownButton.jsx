@@ -1,7 +1,7 @@
 import React from 'react';
 
+import Icon from '../../../Shared/Icon/Icon';
 import styles from './DropdownButton.module.scss';
-import Icon from '../../Icon/Icon.js';
 
 const DropdownButton = React.memo(({ onClick, selectedItem, id }) => (
 	<button onClick={onClick} className={styles.dropdownButton}>

@@ -1,15 +1,13 @@
 import { useCallback, useState } from 'react';
+import Button from '../../../../Shared/Button/Button.jsx';
+import BookTrialForm from '../../../../Shared/Form/BookTrialForm/BookTrialForm';
+import LanguageLevels from '../../../../Shared/LanguageLevel/LanguageLevels.jsx';
+import ModalRoot from '../../../../Shared/Modal/ModalRoot/ModalRoot.jsx';
+import ModalTemplate from '../../../../Shared/Modal/ModalTemplate/ModalTemplate.jsx';
+import Reviews from '../../../../Shared/Reviews/Reviews.jsx';
+import styles from './TeacherContent.module.scss';
 import TeacherHeader from './TeacherHeader/TeacherHeader.jsx';
 import TeacherInfo from './TeacherInfo/TeacherInfo.jsx';
-// import Reviews from '../../../../Shared/Reviews/Reviews.jsx';
-// import LanguageLevels from '../../../../shared/LanguageLevel/LanguageLevels.jsx';
-// import Button from '../../../../Shared/Button/Button.jsx';
-// import ModalRoot from '../../../../Shared/Modal/ModalRoot/ModalRoot.js';
-// import ModalTemplate from '../../../../Shared/Modal/ModalTemplate/ModalTemplate.jsx';
-// import BookTrialForm from '../../../../Shared/Form/BookTrialForm/BookTrialForm.jsx';
-import Button from '../../../../Shared/Button/Button.jsx';
-import LanguageLevels from '../../../../Shared/LanguageLevel/LanguageLevels.jsx';
-import styles from './TeacherContent.module.scss';
 
 const TeacherContent = ({ teacher, teacherFullName }) => {
 	const [isHidden, setIsHidden] = useState(true);
@@ -32,6 +30,7 @@ const TeacherContent = ({ teacher, teacherFullName }) => {
 					text='Book trial lesson'
 					className='bookBtn'
 					ariaLabel='Book a trial lesson with the teacher'
+					onClick={handleOpenCloseModal}
 				/>
 			);
 		}
@@ -66,7 +65,7 @@ const TeacherContent = ({ teacher, teacherFullName }) => {
 						'Our experienced tutor will assess your current language level, discuss your learning goals, and tailor the lesson to your specific needs.'
 					}
 				>
-					<BookTrialForm />
+					<BookTrialForm teacher={teacher} teacherFullName={teacherFullName} />
 				</ModalTemplate>
 			</ModalRoot>
 		</div>
