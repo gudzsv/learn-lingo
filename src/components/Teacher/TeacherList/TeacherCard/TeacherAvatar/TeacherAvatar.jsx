@@ -1,5 +1,5 @@
-import Avatar from '../../../../Shared/Avatar/Avatar.jsx';
-import StatusBadge from '../../../../Shared/StatusBadge/StatusBadge.jsx';
+import Avatar from '../../../../Shared1/Avatar/Avatar.jsx';
+import StatusBadge from '../../../../Shared1/StatusBadge/StatusBadge.js';
 import styles from './TeacherAvatar.module.scss';
 
 const TeacherAvatar = ({
