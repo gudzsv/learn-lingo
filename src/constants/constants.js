@@ -35,4 +35,27 @@ export const REASONS = [
 	},
 ];
 
+export const MODAL_CONFIG = {
+	login: {
+		title: 'Log In',
+		message:
+			'Welcome back! Please enter your credentials to access your account and continue your search for an teacher.',
+	},
+	registration: {
+		title: 'Registration',
+		message:
+			'Thank you for your interest in our platform! In order to register, we need some information. Please provide us with the following information',
+	},
+	bookLesson: {
+		title: 'Book trial lesson',
+		message:
+			'Our experienced tutor will assess your current language level, discuss your learning goals, and tailor the lesson to your specific needs.',
+	},
+	favoriteInfo: {
+		title: 'Information',
+		message:
+			'To add or remove a card from your favorites, please log in to your account. Thank you!',
+	},
+};
+
 export const INITIAL_VISIBLE_CARDS = 4;

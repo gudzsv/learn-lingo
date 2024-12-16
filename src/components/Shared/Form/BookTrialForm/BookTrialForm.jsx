@@ -18,6 +18,7 @@ const BookTrialForm = ({ teacher, teacherFullName }) => {
 			name: '',
 			email: '',
 			phone: '',
+			reason: '',
 		},
 		resolver: yupResolver(bookTrialFormValidationSchema),
 	});
@@ -32,7 +33,7 @@ const BookTrialForm = ({ teacher, teacherFullName }) => {
 			<div className={styles.teacherInfo}>
 				<Avatar
 					src={teacher.avatar_url}
-					alt={`Avatar of ${teacherFullName}`}
+					alt={teacherFullName}
 					className='bookAvatar'
 				/>
 				<p className={styles.teacherDetails}>
@@ -41,7 +42,11 @@ const BookTrialForm = ({ teacher, teacherFullName }) => {
 				</p>
 			</div>
 
-			<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+			<form
+				id='bookForm'
+				className={styles.form}
+				onSubmit={handleSubmit(onSubmit)}
+			>
 				<fieldset className={styles.formFieldset}>
 					<legend className={styles.formLegend}>
 						What is your main reason for learning English?
@@ -53,21 +58,20 @@ const BookTrialForm = ({ teacher, teacherFullName }) => {
 								<input
 									type='radio'
 									id={option.id}
-									name='reason'
+									{...register('reason', { required: true })}
 									value={option.value}
-									aria-labelledby={`${option.id}Label`}
 									className={styles.formRadio}
-									required
 								/>
-								<label
-									id={`${option.id}Label`}
-									htmlFor={option.id}
-									className={styles.formRadioLabel}
-								>
+								<label htmlFor={option.id} className={styles.formRadioLabel}>
 									{option.label}
 								</label>
 							</div>
 						))}
+						{errors.reason && (
+							<div id='reasonError' className='error'>
+								{errors.reason.message}
+							</div>
+						)}
 					</div>
 				</fieldset>
 
@@ -121,7 +125,12 @@ const BookTrialForm = ({ teacher, teacherFullName }) => {
 					</div>
 				</div>
 
-				<Button text='Book' className='bookFormBtn' type='submit' />
+				<Button
+					form={'bookForm'}
+					type={'submit'}
+					text='Book'
+					className='bookFormBtn'
+				/>
 			</form>
 		</div>
 	);

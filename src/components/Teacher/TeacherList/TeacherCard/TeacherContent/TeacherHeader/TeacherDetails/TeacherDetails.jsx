@@ -1,55 +1,64 @@
-import { useDispatch } from 'react-redux';
+import { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { MODAL_CONFIG } from '../../../../../../../constants/constants.js';
+import useModal from '../../../../../../../hooks/useModal.js';
+import { selectIsAuthenticated } from '../../../../../../../redux/auth/selectors.js';
 import { updateFavorite } from '../../../../../../../redux/teachers/slice.js';
 import FavoriteButton from '../../../../../../Shared/Button/FavoriteButton/FavoriteButton.jsx';
-import Icon from '../../../../../../Shared/Icon/Icon.jsx';
+import ModalRoot from '../../../../../../Shared/Modal/ModalRoot/ModalRoot.jsx';
+import ModalTemplate from '../../../../../../Shared/Modal/ModalTemplate/ModalTemplate.jsx';
+import DetailsItem from './DetailsItem/DetailsItem.jsx';
 import styles from './TeacherDetails.module.scss';
 
+const {
+	favoriteInfo: { title, message },
+} = MODAL_CONFIG;
 const TeacherDetails = ({ teacher }) => {
+	const isAuthenticated = useSelector(selectIsAuthenticated);
+	const { isOpen, toggleModal } = useModal();
+
 	const dispatch = useDispatch();
 
-	const handleToggleFavorite = () => {
+	const handleToggleFavorite = useCallback(() => {
+		if (!isAuthenticated) {
+			toggleModal();
+			return;
+		}
 		dispatch(updateFavorite(teacher));
-	};
+	}, [dispatch, isAuthenticated, teacher, toggleModal]);
 
 	return (
 		<div className={styles.teacherDetails}>
 			<dl className={styles.detailsList}>
-				<div className={styles.detailsItem}>
-					<dt className={styles.detailsTitle}>
-						<div className={styles.detailIcon}>
-							<Icon iconName='book' width='16' height='16' aria-hidden='true' />
-						</div>
-					</dt>
-					<dd className={styles.detailsValue}>Lessons online</dd>
-				</div>
-
-				<div className={styles.detailsItem}>
-					<dt className={styles.detailsTitle}>Lessons done:</dt>
-					<dd className={styles.detailsValue}>
+				<DetailsItem
+					icon='book'
+					title=''
+					value='Lessons online'
+					iconWidth='16'
+					iconHeight='16'
+				/>
+				<DetailsItem
+					title='Lessons done:'
+					value={
 						<data value={teacher.lessons_done}>{teacher.lessons_done}</data>
-					</dd>
-				</div>
-
-				<div className={styles.detailsItem}>
-					<dt className={styles.detailsTitle}>
-						<div className={styles.detailIcon}>
-							<Icon iconName='star' width='16' height='16' aria-hidden='true' />
-						</div>
-						<span>Rating:</span>
-					</dt>
-					<dd className={styles.detailsValue}>
-						<data value={teacher.rating}>{teacher.rating}</data>
-					</dd>
-				</div>
-
-				<div className={styles.detailsItem}>
-					<dt className={styles.detailsTitle}>Price / 1 hour:</dt>
-					<dd className={`${styles.detailsValue} ${styles.detailsPrice}`}>
+					}
+				/>
+				<DetailsItem
+					icon='star'
+					title='Rating:'
+					value={<data value={teacher.rating}>{teacher.rating}</data>}
+					iconWidth='16'
+					iconHeight='16'
+				/>
+				<DetailsItem
+					title='Price / 1 hour:'
+					value={
 						<data value={teacher.price_per_hour}>
 							{teacher.price_per_hour} $
 						</data>
-					</dd>
-				</div>
+					}
+					className={styles.detailsPrice}
+				/>
 			</dl>
 			<div className={styles.favoriteButtonWrapper}>
 				<FavoriteButton
@@ -60,6 +69,10 @@ const TeacherDetails = ({ teacher }) => {
 					}
 				/>
 			</div>
+
+			<ModalRoot isOpen={isOpen} onClose={toggleModal}>
+				<ModalTemplate title={title} message={message} />
+			</ModalRoot>
 		</div>
 	);
 };

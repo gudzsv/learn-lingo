@@ -1,4 +1,6 @@
 import { useCallback, useState } from 'react';
+import { MODAL_CONFIG } from '../../../../../constants/constants.js';
+import useModal from '../../../../../hooks/useModal.js';
 import Button from '../../../../Shared/Button/Button.jsx';
 import BookTrialForm from '../../../../Shared/Form/BookTrialForm/BookTrialForm';
 import LanguageLevels from '../../../../Shared/LanguageLevel/LanguageLevels.jsx';
@@ -9,9 +11,14 @@ import styles from './TeacherContent.module.scss';
 import TeacherHeader from './TeacherHeader/TeacherHeader.jsx';
 import TeacherInfo from './TeacherInfo/TeacherInfo.jsx';
 
+const {
+	bookLesson: { title, message },
+} = MODAL_CONFIG;
+
 const TeacherContent = ({ teacher, teacherFullName }) => {
 	const [isHidden, setIsHidden] = useState(true);
-	const [isOpenModal, setIsOpenModel] = useState(false);
+
+	const { isOpen, toggleModal } = useModal();
 
 	const handleReadMore = useCallback(() => {
 		setIsHidden((prev) => !prev);
@@ -30,15 +37,11 @@ const TeacherContent = ({ teacher, teacherFullName }) => {
 					text='Book trial lesson'
 					className='bookBtn'
 					ariaLabel='Book a trial lesson with the teacher'
-					onClick={handleOpenCloseModal}
+					onClick={toggleModal}
 				/>
 			);
 		}
 	}, [isHidden]);
-
-	const handleOpenCloseModal = () => {
-		setIsOpenModel((prev) => !prev);
-	};
 
 	return (
 		<div className={styles.teacherContent}>
@@ -58,13 +61,8 @@ const TeacherContent = ({ teacher, teacherFullName }) => {
 
 			{renderButton()}
 
-			<ModalRoot isOpen={isOpenModal} onClose={handleOpenCloseModal}>
-				<ModalTemplate
-					title={'Book trial lesson'}
-					message={
-						'Our experienced tutor will assess your current language level, discuss your learning goals, and tailor the lesson to your specific needs.'
-					}
-				>
+			<ModalRoot isOpen={isOpen} onClose={toggleModal}>
+				<ModalTemplate title={title} message={message}>
 					<BookTrialForm teacher={teacher} teacherFullName={teacherFullName} />
 				</ModalTemplate>
 			</ModalRoot>

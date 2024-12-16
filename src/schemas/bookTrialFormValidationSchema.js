@@ -12,5 +12,8 @@ export const bookTrialFormValidationSchema = Yup.object({
 			excludeEmptyString: true,
 		})
 		.required('Email is required'),
-	phone: Yup.string().required('Phone number is required'),
+	phone: Yup.string()
+		.required('Phone number is required')
+		.matches(/^[0-9]+$/, 'Phone number must only contain digits'),
+	reason: Yup.string().required('Please select a reason '),
 });

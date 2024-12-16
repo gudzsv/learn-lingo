@@ -8,7 +8,6 @@
 	}
 
 	@include tablet {
-		// gap: 34px;
 		justify-content: space-between;
 	}
 
@@ -48,73 +47,11 @@
 	}
 }
 
-.detailsItem {
-	display: flex;
-	align-items: center;
-
-	&:not(:last-child)::after {
-		content: '|';
-		width: 1px;
-		height: fit-content;
-		display: inline-block;
-		margin-left: 16px;
-		color: gray;
-
-		@include desktop {
-			margin-left: 8px;
-		}
-
-		@include tablet {
-			margin-left: 8px;
-		}
-
-		@include mobile {
-			content: '';
-			width: 0;
-			margin: 0;
-		}
-	}
-}
-
-.detailsTitle {
-	display: flex;
-	align-items: center;
-	color: $main-black;
-}
-
-.detailIcon {
-	display: flex;
-	align-items: center;
-	margin-right: 8px;
-
-	@include mobile {
-		display: none;
-	}
-}
-
-.detailsValue {
-	display: flex;
-	align-items: center;
-	color: $main-black;
-	margin-left: 4px;
-
-	@include tablet {
-		margin-left: 0;
-	}
-
-	@include mobile {
-		margin-left: 0;
-	}
-}
-
 .detailsPrice {
 	color: $green;
 }
 
 .favoriteButtonWrapper {
-	// position: absolute;
-	// top: -56px;
-	// left: 86px;
 	@include mobile {
 		position: absolute;
 		top: -77px;
