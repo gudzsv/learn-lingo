@@ -1,8 +1,8 @@
-import Icon from '../Icon/Icon.js';
-import styles from './Reviews.module.scss';
+import clsx from 'clsx';
 import blankAvatar from '../../../assets/img/reviews/blank_avatar1.png';
 import Avatar from '../Avatar/Avatar.jsx';
-import clsx from 'clsx';
+import Icon from '../Icon/Icon.jsx';
+import styles from './Reviews.module.scss';
 
 const Reviews = ({ reviews, className }) => {
 	if (!reviews || reviews.length === 0) {
