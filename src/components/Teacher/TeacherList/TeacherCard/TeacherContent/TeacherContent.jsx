@@ -1,13 +1,17 @@
 import { useCallback, useState } from 'react';
 import TeacherHeader from './TeacherHeader/TeacherHeader.jsx';
-import TeacherInfo from './TeacheInfo/TeacherInfo.jsx';
-import Reviews from '../../../../Shared/Reviews/Reviews.jsx';
-import LanguageLevels from '../../../../Shared/LanguageLevel/LanguageLevels.jsx';
-import Button from '../../../../Shared/Button/Button.jsx';
+import TeacherInfo from './TeacherInfo/TeacherInfo.jsx';
+import Reviews from '../../../../Shared1/Reviews/Reviews.jsx';
+import LanguageLevels from '../../../../Shared1/LanguageLevel/LanguageLevels.jsx';
+import Button from '../../../../Shared1/Button/Button.jsx';
 import styles from './TeacherContent.module.scss';
+import ModalRoot from '../../../../Shared1/Modal/ModalRoot/ModalRoot.js';
+import ModalTemplate from '../../../../Shared1/Modal/ModalTemplate/ModalTemplate.jsx';
+import BookTrialForm from '../../../../Shared1/Form/BookTrialForm/BookTrialForm.jsx';
 
 const TeacherContent = ({ teacher, teacherFullName }) => {
 	const [isHidden, setIsHidden] = useState(true);
+	const [isOpenModal, setIsOpenModel] = useState(false);
 
 	const handleReadMore = useCallback(() => {
 		setIsHidden((prev) => !prev);
@@ -31,6 +35,10 @@ const TeacherContent = ({ teacher, teacherFullName }) => {
 		}
 	}, [isHidden]);
 
+	const handleOpenCloseModal = () => {
+		setIsOpenModel((prev) => !prev);
+	};
+
 	return (
 		<div className={styles.teacherContent}>
 			<TeacherHeader teacher={teacher} teacherFullName={teacherFullName} />
@@ -48,6 +56,17 @@ const TeacherContent = ({ teacher, teacherFullName }) => {
 			/>
 
 			{renderButton()}
+
+			<ModalRoot isOpen={isOpenModal} onClose={handleOpenCloseModal}>
+				<ModalTemplate
+					title={'Book trial lesson'}
+					message={
+						'Our experienced tutor will assess your current language level, discuss your learning goals, and tailor the lesson to your specific needs.'
+					}
+				>
+					<BookTrialForm />
+				</ModalTemplate>
+			</ModalRoot>
 		</div>
 	);
 };
