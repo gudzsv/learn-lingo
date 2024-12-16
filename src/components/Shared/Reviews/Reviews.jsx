@@ -1,4 +1,4 @@
-import Icon from '../Icon/Icon.jsx';
+import Icon from '../Icon/Icon.js';
 import styles from './Reviews.module.scss';
 import blankAvatar from '../../../assets/img/reviews/blank_avatar1.png';
 import Avatar from '../Avatar/Avatar.jsx';

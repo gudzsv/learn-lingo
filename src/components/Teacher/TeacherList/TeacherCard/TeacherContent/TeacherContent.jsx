@@ -1,13 +1,13 @@
 import { useCallback, useState } from 'react';
 import TeacherHeader from './TeacherHeader/TeacherHeader.jsx';
 import TeacherInfo from './TeacherInfo/TeacherInfo.jsx';
-import Reviews from '../../../../Shared1/Reviews/Reviews.jsx';
-import LanguageLevels from '../../../../Shared1/LanguageLevel/LanguageLevels.jsx';
-import Button from '../../../../Shared1/Button/Button.jsx';
+import Reviews from '../../../../Shared/Reviews/Reviews.jsx';
+import LanguageLevels from '../../../../Shared/LanguageLevel/LanguageLevels.js';
+import Button from '../../../../Shared/Button/Button.jsx';
 import styles from './TeacherContent.module.scss';
-import ModalRoot from '../../../../Shared1/Modal/ModalRoot/ModalRoot.js';
-import ModalTemplate from '../../../../Shared1/Modal/ModalTemplate/ModalTemplate.jsx';
-import BookTrialForm from '../../../../Shared1/Form/BookTrialForm/BookTrialForm.jsx';
+import ModalRoot from '../../../../Shared/Modal/ModalRoot/ModalRoot.js';
+import ModalTemplate from '../../../../Shared/Modal/ModalTemplate/ModalTemplate.jsx';
+import BookTrialForm from '../../../../Shared/Form/BookTrialForm/BookTrialForm.jsx';
 
 const TeacherContent = ({ teacher, teacherFullName }) => {
 	const [isHidden, setIsHidden] = useState(true);

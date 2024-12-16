@@ -1,7 +1,7 @@
 import TeacherExperience from './TeacherExperience/TeacherExperience.jsx';
 import TeacherInfoList from './TeacherInfoList/TeacherInfoList.jsx';
 import styles from './TeacherInfo.module.scss';
-import ReadMoreBtn from '../../../../../Shared1/Button/ReadMoreBtn/ReadMoreBtn.jsx';
+import ReadMoreBtn from '../../../../../Shared/Button/ReadMoreBtn/ReadMoreBtn.js';
 
 const TeacherInfo = ({ teacher, isHidden, handleReadMore }) => {
 	return (
