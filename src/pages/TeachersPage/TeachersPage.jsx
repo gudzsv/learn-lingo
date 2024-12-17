@@ -1,34 +1,29 @@
-import styles from './TeachersPage.module.scss';
-import Container from '../../components/Shared/Container/Container.jsx';
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllTeachers } from '../../redux/teachers/operations.js';
-import {
-	selectAllTeachers,
-	selectFilteredTeachers,
-} from '../../redux/teachers/selectors.js';
-import Loader from '../../components/Shared/Loader/Loader.jsx';
+import Container from '../../components/Shared/Container/Container.jsx';
 import Teacher from '../../components/Teacher/Teacher.jsx';
+import { getAllTeachers } from '../../redux/teachers/operations.js';
+import { selectFilteredTeachers } from '../../redux/teachers/selectors.js';
+import styles from './TeachersPage.module.scss';
 
 const TeachersPage = () => {
 	const dispatch = useDispatch();
-	// const teachers = useSelector(selectAllTeachers);
 	const filteredTeacher = useSelector(selectFilteredTeachers);
 
 	useEffect(() => {
 		if (!filteredTeacher || filteredTeacher.length === 0) {
 			dispatch(getAllTeachers());
 		}
-	}, []);
+	}, [filteredTeacher, dispatch]);
 
 	return (
 		<div className={styles.teachersPage}>
+			<Helmet>
+				<title>{'Teachers'}</title>
+			</Helmet>
 			<Container>
-				{/* {teachers.length === 0 ? (
-					<Loader />
-				) : ( */}
 				<Teacher teachers={filteredTeacher} />
-				{/* )} */}
 			</Container>
 		</div>
 	);

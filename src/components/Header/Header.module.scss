@@ -3,6 +3,10 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	position: fixed;
+	background: $white;
+	width: 100%;
+	z-index: 10;
 
 	@include mobile {
 		padding: 1rem 1rem;
@@ -30,19 +34,19 @@
 		align-items: center;
 
 		@include tablet {
-			gap: 100px;
+			gap: 150px;
 		}
 
 		@include desktop {
-			gap: 204px;
+			gap: 260px;
 		}
 
 		@include large-desktop {
-			gap: 390px;
+			gap: 444px;
 		}
 
 		@include extra-large-desktop {
-			gap: 390px;
+			gap: 700px;
 		}
 	}
 }

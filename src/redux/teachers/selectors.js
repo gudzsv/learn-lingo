@@ -24,4 +24,9 @@ export const selectFilteredTeachers = createSelector(
 	}
 );
 
+export const selectFavoriteTeachers = createSelector(
+	[selectAllTeachers],
+	(teachers) => teachers.filter((teacher) => teacher?.favorite === true)
+);
+
 export const selectLanguageLevel = (state) => state.teachers.languageLevel;

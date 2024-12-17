@@ -1,5 +1,5 @@
 .heroWrapper {
-	padding-top: 20px;
+	padding-top: 80px;
 	padding-bottom: 24px;
 	display: flex;
 
@@ -8,6 +8,10 @@
 
 	@include desktopAndLarger {
 		flex-direction: row;
+	}
+
+	@include mobile {
+		padding-top: 60px;
 	}
 }
 
@@ -60,7 +64,6 @@
 	font-style: italic;
 	border-radius: 8px;
 	background: #fbe9ba;
-
 }
 
 .heroText {
