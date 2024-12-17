@@ -1,12 +1,12 @@
-import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import MobileMenu from './MobileMenu/MobileMenu.jsx';
-import Logo from '../Shared/Logo/Logo.jsx';
-import BurgerBtn from '../Shared/Button/BurgerBtn/BurgerBtn.jsx';
-import ModalManager from './ModalManager/ModalManager.jsx';
+import { useNavigate } from 'react-router-dom';
 import AuthControls from '../Shared/AuthControls/AuthControls.jsx';
+import BurgerBtn from '../Shared/Button/BurgerBtn/BurgerBtn.jsx';
+import Logo from '../Shared/Logo/Logo.jsx';
 import Navigation from '../Shared/Navigation/Navigation.jsx';
+import MobileMenu from './MobileMenu/MobileMenu.jsx';
+import ModalManager from './ModalManager/ModalManager.jsx';
 
 import styles from './Header.module.scss';
 
@@ -33,7 +33,6 @@ const Header = () => {
 	useEffect(() => {
 		if (isAuthenticated) {
 			closeModal();
-			navigate('/teachers');
 		}
 	}, [isAuthenticated]);
 

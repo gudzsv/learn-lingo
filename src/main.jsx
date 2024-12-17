@@ -5,7 +5,7 @@ import Providers from './providers/Providers.jsx';
 
 const environment = import.meta.env.VITE_APP_ENV;
 
-if (environment === 'development1') {
+if (environment === 'development') {
 	createRoot(document.getElementById('root')).render(
 		<StrictMode>
 			<Providers />

@@ -1,13 +1,13 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { Navigate, Outlet } from 'react-router';
 import ErrorMessage from '../components/Shared/ErrorMessage/ErrorMessage.jsx';
 import Loader from '../components/Shared/Loader/Loader.jsx';
-import { useSelector } from 'react-redux';
 import {
 	selectError,
 	selectIsAuthenticated,
 	selectIsLoading,
 } from '../redux/auth/selectors.js';
-import { Navigate, Outlet } from 'react-router';
 
 const PrivateRoute = () => {
 	const isLoading = useSelector(selectIsLoading);

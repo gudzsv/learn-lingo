@@ -1,8 +1,8 @@
 import React from 'react';
-import Loader from '../components/Shared/Loader/Loader.jsx';
-import ErrorMessage from '../components/Shared/ErrorMessage/ErrorMessage.jsx';
-import { Navigate, Outlet } from 'react-router';
 import { useSelector } from 'react-redux';
+import { Navigate, Outlet } from 'react-router';
+import ErrorMessage from '../components/Shared/ErrorMessage/ErrorMessage.jsx';
+import Loader from '../components/Shared/Loader/Loader.jsx';
 import {
 	selectError,
 	selectIsAuthenticated,
