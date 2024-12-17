@@ -2,7 +2,15 @@ export const DROPDOWNS = [
 	{
 		id: 'languages',
 		label: 'Languages',
-		items: ['French', 'English', 'German', 'Ukrainian', 'Polish'],
+		items: [
+			'French',
+			'English',
+			'German',
+			'Spanish',
+			'Ukrainian',
+			'Polish',
+			'Korean',
+		],
 	},
 	{
 		id: 'levels',
@@ -12,6 +20,8 @@ export const DROPDOWNS = [
 			'A2 Elementary',
 			'B1 Intermediate',
 			'B2 Upper-Intermediate',
+			'C1 Advanced',
+			'C2 Proficient',
 		],
 	},
 	{ id: 'price_per_hour', label: 'Price', items: ['10', '20', '30', '40'] },

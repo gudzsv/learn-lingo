@@ -1,10 +1,10 @@
+import { useMemo, useState } from 'react';
+import { INITIAL_VISIBLE_CARDS } from '../../constants/constants.js';
 import Button from '../Shared/Button/Button.jsx';
 import FilterForm from './FilterForm/FilterForm.jsx';
 import NoTeachersFound from './NoTeachersFound/NoTeachersFound.jsx';
-import TeacherList from './TeacherList/TeacherList.jsx';
-import { useMemo, useState } from 'react';
 import styles from './Teacher.module.scss';
-import { INITIAL_VISIBLE_CARDS } from '../../constants/constants.js';
+import TeacherList from './TeacherList/TeacherList.jsx';
 
 const Teacher = ({ teachers }) => {
 	const [visibleCards, setVisibleCards] = useState(INITIAL_VISIBLE_CARDS);
@@ -19,6 +19,10 @@ const Teacher = ({ teachers }) => {
 	);
 
 	const visibleTeachers = useMemo(() => {
+		console.log(
+			'teachers.slice(0, visibleCards): ',
+			teachers.slice(0, visibleCards)
+		);
 		return teachers.slice(0, visibleCards);
 	}, [teachers, visibleCards]);
 

@@ -38,20 +38,20 @@ const TeacherDetails = ({ teacher }) => {
 					iconHeight='16'
 				/>
 				<DetailsItem
-					title='Lessons done:'
+					title='Lessons done: '
 					value={
 						<data value={teacher.lessons_done}>{teacher.lessons_done}</data>
 					}
 				/>
 				<DetailsItem
 					icon='star'
-					title='Rating:'
+					title='Rating: '
 					value={<data value={teacher.rating}>{teacher.rating}</data>}
 					iconWidth='16'
 					iconHeight='16'
 				/>
 				<DetailsItem
-					title='Price / 1 hour:'
+					title='Price / 1 hour: '
 					value={
 						<data value={teacher.price_per_hour}>
 							{teacher.price_per_hour} $

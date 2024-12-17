@@ -15,10 +15,17 @@
 	font-weight: 500;
 	line-height: 24px;
 	letter-spacing: -0.8px;
-	// margin-top: 12px;
 	margin-bottom: 8px;
 
-	@include tabletAndLarger {
+	@include mobile {
+		font-size: 24px;
+	}
+
+	@include tablet {
+		font-size: 28px;
+	}
+
+	@include desktopAndLarger {
 		text-align: left;
 		font-size: 40px;
 		line-height: 48px;

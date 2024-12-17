@@ -15,7 +15,7 @@ const TeachersPage = () => {
 		if (!filteredTeacher || filteredTeacher.length === 0) {
 			dispatch(getAllTeachers());
 		}
-	}, [filteredTeacher, dispatch]);
+	}, []);
 
 	return (
 		<div className={styles.teachersPage}>

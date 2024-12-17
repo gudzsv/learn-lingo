@@ -6,7 +6,12 @@ import Avatar from '../../Avatar/Avatar.jsx';
 import Button from '../../Button/Button.jsx';
 import styles from './BookTrialForm.module.scss';
 
-const BookTrialForm = ({ teacher, teacherFullName }) => {
+const BookTrialForm = ({
+	teacher,
+	teacherFullName,
+	onCloseModal,
+	onNotify,
+}) => {
 	const {
 		register,
 		handleSubmit,
@@ -25,6 +30,8 @@ const BookTrialForm = ({ teacher, teacherFullName }) => {
 
 	const onSubmit = (data) => {
 		console.log(data);
+		onNotify(data);
+		onCloseModal();
 		reset();
 	};
 

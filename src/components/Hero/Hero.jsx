@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import styles from './Hero.module.scss';
-import Icon from '../Shared/Icon/Icon.jsx';
 import LaptopImg from './LaptopImg/LaptopImg.jsx';
 
 const Hero = () => {
@@ -37,7 +36,6 @@ const Hero = () => {
 						alt='Motivational image of a person learning languages'
 						width='339'
 						height='339'
-						loading='lazy'
 					/>
 				</picture>
 
