@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import AuthControls from '../Shared/AuthControls/AuthControls.jsx';
 import BurgerBtn from '../Shared/Button/BurgerBtn/BurgerBtn.jsx';
 import Logo from '../Shared/Logo/Logo.jsx';
@@ -28,7 +27,6 @@ const Header = () => {
 	const isLoading = useSelector(selectIsLoading);
 
 	const dispatch = useDispatch();
-	const navigate = useNavigate();
 
 	useEffect(() => {
 		if (isAuthenticated) {
