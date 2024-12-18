@@ -10,10 +10,10 @@ export default defineConfig({
 		FullReload(['./src/**/*.{js,jsx,tsx,css,json,svg,webp}']),
 		ViteImageOptimizer({
 			exclude: /^sprite.svg$/,
-			png: { quality: 60 },
-			jpeg: { quality: 60 },
-			jpg: { quality: 60 },
-			webp: { quality: 60 },
+			png: { quality: 75 },
+			jpeg: { quality: 75 },
+			jpg: { quality: 75 },
+			webp: { quality: 75 },
 			svg: {
 				multipass: true,
 				plugins: [{ name: 'removeViewBox', active: false }],
