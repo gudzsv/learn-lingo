@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import img1x from '../../assets/img/hero/face/face_1x.webp';
+import img2x from '../../assets/img/hero/face/face_2x.webp';
 import styles from './Hero.module.scss';
 import LaptopImg from './LaptopImg/LaptopImg.jsx';
 
@@ -26,13 +28,13 @@ const Hero = () => {
 			<div className={styles.heroImageWrapper}>
 				<picture className={styles.heroPictureFace}>
 					<source
-						srcSet='
-							/src/assets/img/hero/face/face_1x.webp 1x,
-							/src/assets/img/hero/face/face_2x.webp 2x'
+						srcSet={`
+							${img1x} 1x,
+							${img2x} 2x`}
 						type='image/webp'
 					/>
 					<img
-						src='/src/assets/img/hero/face/face_1x.webp'
+						src={img1x}
 						alt='Motivational image of a person learning languages'
 						width='339'
 						height='339'

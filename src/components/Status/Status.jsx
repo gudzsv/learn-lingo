@@ -1,6 +1,6 @@
-import StatusItem from './StatusItem/StatusItem.jsx';
-import styles from './Status.module.scss';
 import { useEffect, useState } from 'react';
+import styles from './Status.module.scss';
+import StatusItem from './StatusItem/StatusItem.jsx';
 
 const Status = () => {
 	const [isMobile, setIsMobile] = useState(false);

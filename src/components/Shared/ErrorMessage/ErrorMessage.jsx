@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import styles from './ErrorMessage.module.scss';
 import { clearError } from '../../../redux/auth/slice.js';
+import styles from './ErrorMessage.module.scss';
 
 const ErrorMessage = ({ message }) => {
 	const dispatch = useDispatch();
@@ -17,7 +17,6 @@ const ErrorMessage = ({ message }) => {
 	return (
 		<div className={styles.errorMessage}>
 			<p>{message}</p>
-			{/* <button onClick={() => window.location.reload()}>Try Again</button> */}
 		</div>
 	);
 };

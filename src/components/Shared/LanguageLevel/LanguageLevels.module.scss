@@ -19,7 +19,7 @@
 	align-items: center;
 	gap: 4px;
 	border-radius: 35px;
-	border: 1px solid rgba(18, 20, 23, 0.2);
+	border: 1px solid $secondary-light-black-02;
 
 	font-size: 14px;
 	font-style: normal;
@@ -49,7 +49,7 @@
 }
 
 .radioInput:checked + .radioLabel {
-	background-color: #f4c550;
+	background-color: $orange;
 }
 
 .radioInput:focus-visible + .radioLabel {

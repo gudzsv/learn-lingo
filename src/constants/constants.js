@@ -1,3 +1,5 @@
+export const MAX_MOBILE_WIDTH = 425;
+
 export const DROPDOWNS = [
 	{
 		id: 'languages',

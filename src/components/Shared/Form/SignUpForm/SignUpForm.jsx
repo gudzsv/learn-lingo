@@ -1,18 +1,18 @@
-import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import Icon from '../../Icon/Icon.jsx';
-import { signUpValidationSchema } from '../../../../schemas/signUpValidationSchema.js';
 import clsx from 'clsx';
+import { useForm } from 'react-hook-form';
 import { useToggleEye } from '../../../../hooks/useToggleEye.js';
+import { signUpValidationSchema } from '../../../../schemas/signUpValidationSchema.js';
+import Icon from '../../Icon/Icon.jsx';
 
-import styles from './SignUpForm.module.scss';
-import SubmitBtn from '../../Button/SubmitBtn/SubmitBtn.jsx';
 import { useSelector } from 'react-redux';
 import {
 	selectError,
 	selectIsLoading,
 } from '../../../../redux/auth/selectors.js';
+import SubmitBtn from '../../Button/SubmitBtn/SubmitBtn.jsx';
 import ErrorMessage from '../../ErrorMessage/ErrorMessage.jsx';
+import styles from './SignUpForm.module.scss';
 
 const SignUpForm = ({ onSubmit }) => {
 	const { isEyeOn, toggleEye } = useToggleEye();

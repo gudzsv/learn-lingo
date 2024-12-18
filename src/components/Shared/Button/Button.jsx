@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import styles from './Button.module.scss';
-import { useState } from 'react';
 
 const Button = ({
 	form = '',

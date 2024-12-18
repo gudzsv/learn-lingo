@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom';
 import clsx from 'clsx';
+import { NavLink } from 'react-router-dom';
 import styles from './Navigation.module.scss';
 
 const Navigation = ({ isAuthenticated, closeMenu, isBurger }) => {

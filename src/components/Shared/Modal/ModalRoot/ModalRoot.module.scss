@@ -30,8 +30,8 @@
 	width: 90%;
 	min-width: 320px;
 	animation: slideIn $animation-cubic;
-	max-height: 90vh; /* Обмежує висоту */
-	overflow-y: auto; /* Додає скролінг всередині */
+	max-height: 90vh;
+	overflow-y: auto;
 
 	@include mobile {
 		max-width: 100%;
@@ -65,10 +65,4 @@
 	stroke: $main-black;
 	width: 24px;
 	height: 24px;
-
-	// &:hover,
-	// &:focus,
-	// &:active {
-	// 	stroke: #f4c550;
-	// }
 }

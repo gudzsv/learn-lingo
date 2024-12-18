@@ -1,6 +1,6 @@
-import React from 'react';
-import styles from './Avatar.module.scss';
 import clsx from 'clsx';
+import { memo } from 'react';
+import styles from './Avatar.module.scss';
 const Avatar = ({
 	src,
 	alt,
@@ -31,4 +31,4 @@ const Avatar = ({
 	);
 };
 
-export default Avatar;
+export default memo(Avatar);

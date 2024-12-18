@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import styles from './SubmitBtn.module.scss';
-import { useState } from 'react';
 
 const SubmitBtn = ({
 	form = '',
@@ -17,7 +16,6 @@ const SubmitBtn = ({
 		<button
 			form={form}
 			type={type}
-			// onClick={onClick}
 			className={clsx(styles.button, styles[className], {
 				[styles.disabled]: isDisabled,
 				[styles.loading]: isLoading,

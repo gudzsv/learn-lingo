@@ -19,10 +19,6 @@ const Teacher = ({ teachers }) => {
 	);
 
 	const visibleTeachers = useMemo(() => {
-		console.log(
-			'teachers.slice(0, visibleCards): ',
-			teachers.slice(0, visibleCards)
-		);
 		return teachers.slice(0, visibleCards);
 	}, [teachers, visibleCards]);
 
