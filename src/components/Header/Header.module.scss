@@ -1,9 +1,8 @@
 .header {
-	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	position: fixed;
+	position: sticky;
 	background: $white;
 	width: 100%;
 	z-index: 10;

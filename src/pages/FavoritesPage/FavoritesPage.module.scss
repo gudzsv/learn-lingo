@@ -1,9 +1,5 @@
 .favoritePage {
 	background-color: $background;
 	min-height: 100vh;
-	padding-top: 60px;
-
-	@include extra-large-desktop {
-		padding-top: 86px;
-	}
+	padding-top: 20px;
 }

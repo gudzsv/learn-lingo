@@ -1,24 +1,12 @@
 .filterForm {
 	display: flex;
-	padding-top: 80px;
+	padding-top: 20px;
 
 	gap: 1.25rem;
 
 	@include mobile {
 		flex-direction: column;
 		gap: 1rem;
-		padding-top: 60px;
-	}
-
-	@include desktop {
-		padding-top: 98px;
-	}
-
-	@include large-desktop {
-		padding-top: 98px;
-	}
-
-	@include extra-large-desktop {
-		padding-top: 124px;
+		padding-top: 16px;
 	}
 }

@@ -1,5 +1,5 @@
 .heroWrapper {
-	padding-top: 80px;
+	padding-top: 20px;
 	padding-bottom: 24px;
 	display: flex;
 	flex-direction: column-reverse;
@@ -7,14 +7,6 @@
 
 	@include desktopAndLarger {
 		flex-direction: row;
-	}
-
-	@include mobile {
-		padding-top: 60px;
-	}
-
-	@include extra-large-desktop {
-		padding-top: 94px;
 	}
 }
 
