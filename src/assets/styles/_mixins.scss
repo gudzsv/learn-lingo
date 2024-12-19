@@ -3,14 +3,12 @@ $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
 $breakpoint-large-desktop: 1440px;
 
-// Гумовий дизайн для мобільних пристроїв
 @mixin mobile {
 	@media (max-width: 480px) {
 		@content;
 	}
 }
 
-// Респонсивний дизайн для планшетів і більших пристроїв
 @mixin tablet {
 	@media (min-width: 481px) and (max-width: #{$breakpoint-tablet}) {
 		@content;
@@ -23,7 +21,6 @@ $breakpoint-large-desktop: 1440px;
 	}
 }
 
-// Респонсивний дизайн для звичайних десктопів
 @mixin desktop {
 	@media (min-width: #{$breakpoint-tablet + 1}) and (max-width: #{$breakpoint-desktop}) {
 		@content;
@@ -36,7 +33,6 @@ $breakpoint-large-desktop: 1440px;
 	}
 }
 
-// Респонсивний дизайн для великих десктопів
 @mixin large-desktop {
 	@media (min-width: #{$breakpoint-desktop + 1}) and (max-width: #{$breakpoint-large-desktop}) {
 		@content;
@@ -49,7 +45,6 @@ $breakpoint-large-desktop: 1440px;
 	}
 }
 
-// Респонсивний дизайн для екранів понад 1440px
 @mixin extra-large-desktop {
 	@media (min-width: #{$breakpoint-large-desktop + 1}) {
 		@content;

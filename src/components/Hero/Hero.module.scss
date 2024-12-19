@@ -12,6 +12,10 @@
 	@include mobile {
 		padding-top: 60px;
 	}
+
+	@include extra-large-desktop {
+		padding-top: 94px;
+	}
 }
 
 .heroContentWrapper {

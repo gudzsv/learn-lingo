@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import Favorite from '../../components/Favorite/Favorite.jsx';
 import Container from '../../components/Shared/Container/Container.jsx';
-import styles from './FavoritePage.module.scss';
+import styles from './FavoritesPage.module.scss';
 
 const FavoritesPage = () => {
 	return (

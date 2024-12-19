@@ -7,10 +7,7 @@ const FilterForm = () => {
 	const [activeDropdownId, setActiveDropdownId] = useState('');
 
 	return (
-		<form
-			onSubmit={(e) => e.preventDefault()}
-			className={styles.dropdownContainer}
-		>
+		<form onSubmit={(e) => e.preventDefault()} className={styles.filterForm}>
 			{DROPDOWNS.map((dropdown) => (
 				<Dropdown
 					key={dropdown.id}
