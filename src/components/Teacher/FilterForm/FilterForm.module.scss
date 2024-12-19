@@ -10,11 +10,15 @@
 		padding-top: 60px;
 	}
 
+	@include desktop {
+		padding-top: 98px;
+	}
+
 	@include large-desktop {
 		padding-top: 98px;
 	}
 
 	@include extra-large-desktop {
-		padding-top: 98px;
+		padding-top: 124px;
 	}
 }
