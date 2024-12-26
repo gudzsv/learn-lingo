@@ -38,6 +38,5 @@
 
 .dropdownButton.open > svg {
 	stroke: $orange;
-	// transform: rotate(180deg);
 	transform: scaleY(-1);
 }
