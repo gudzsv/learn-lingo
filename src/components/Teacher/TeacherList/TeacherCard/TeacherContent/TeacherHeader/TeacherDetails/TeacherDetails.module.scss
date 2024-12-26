@@ -20,6 +20,7 @@
 
 .detailsList {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	gap: 16px;
 
@@ -30,13 +31,12 @@
 
 	@include desktop {
 		gap: 8px;
-
 		font-size: 14px;
 	}
 
 	@include tablet {
 		font-size: 12px;
-		gap: 8px;
+		gap: 4px;
 	}
 
 	@include mobile {
@@ -56,5 +56,9 @@
 		position: absolute;
 		top: -77px;
 		right: 0px;
+	}
+
+	&:hover svg {
+		stroke: $orange;
 	}
 }

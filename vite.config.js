@@ -59,6 +59,7 @@ export default defineConfig({
 				additionalData: `
           @use 'src/assets/styles/variables' as *;
           @use 'src/assets/styles/mixins' as *;
+					@use 'src/assets/styles/functions' as *;
         `,
 				silenceDeprecations: ['legacy-js-api'],
 			},

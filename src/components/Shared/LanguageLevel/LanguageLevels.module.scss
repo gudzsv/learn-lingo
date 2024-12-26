@@ -27,7 +27,7 @@
 	line-height: 1.14;
 	cursor: pointer;
 	background-color: transparent;
-	transition: background-color $animation-cubic;
+	transition: all $animation-cubic;
 
 	@include desktop {
 		font-size: 12px;
@@ -50,8 +50,13 @@
 
 .radioInput:checked + .radioLabel {
 	background-color: $orange;
+	border: 1px solid $orange;
 }
 
 .radioInput:focus-visible + .radioLabel {
 	outline: 1px solid $main-black;
+}
+
+.radioInput:hover + .radioLabel {
+	border: 1px solid $orange;
 }

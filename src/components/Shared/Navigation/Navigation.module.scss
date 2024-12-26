@@ -1,32 +1,38 @@
 .link {
 	color: $main-black;
-	line-height: 20px;
+	line-height: rem(20);
 	transition: $animation_cubic;
+
+	&:hover {
+		color: $orange-hover;
+	}
 }
 
 .active {
-	line-height: 20px;
 	color: $orange;
 }
 
 .navList {
 	display: none;
+	margin-inline: rem(16);
+	font-size: fluid(16, 14);
 
 	@include tabletAndLarger {
 		display: flex;
 		align-items: flex-start;
-		gap: 18px;
+		gap: rem(18);
 	}
 
 	@include desktopAndLarger {
-		gap: 28px;
+		gap: rem(28);
 	}
 }
 
 .navListMobile {
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
+	gap: rem(12);
+	font-size: fluid(16, 14);
 	font-weight: 700;
 
 	.navItem {

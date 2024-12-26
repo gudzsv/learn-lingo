@@ -1,11 +1,11 @@
 import { useCallback, useMemo } from 'react';
-import useDropdown from '../../../hooks/useDropdown.js';
-import { setFilter } from '../../../redux/teachers/slice.js';
 import { useDispatch, useSelector } from 'react-redux';
+import useDropdown from '../../../hooks/useDropdown.js';
 import { selectFilters } from '../../../redux/teachers/selectors.js';
-import DropdownMenu from './DropdownMenu/DropdownMenu.jsx';
-import DropdownButton from './DropdownButton/DropdownButton.jsx';
+import { setFilter } from '../../../redux/teachers/slice.js';
 import styles from './Dropdown.module.scss';
+import DropdownButton from './DropdownButton/DropdownButton.jsx';
+import DropdownMenu from './DropdownMenu/DropdownMenu.jsx';
 
 const Dropdown = ({
 	id,
@@ -36,6 +36,7 @@ const Dropdown = ({
 			<p className={styles.dropdownLabel}>{label}</p>
 
 			<DropdownButton
+				isOpen={isOpen}
 				onClick={toggleDropdown}
 				selectedItem={selectedItem}
 				id={id}

@@ -47,13 +47,12 @@ const Header = () => {
 			<div className={styles.navWrapper}>
 				<Logo />
 				<Navigation isAuthenticated={isAuthenticated} />
+				<AuthControls
+					isAuthenticated={isAuthenticated}
+					onLogOut={handleLogOut}
+					onOpenModal={openModal}
+				/>
 			</div>
-
-			<AuthControls
-				isAuthenticated={isAuthenticated}
-				onLogOut={handleLogOut}
-				onOpenModal={openModal}
-			/>
 
 			<BurgerBtn onClick={toggleMenu} />
 

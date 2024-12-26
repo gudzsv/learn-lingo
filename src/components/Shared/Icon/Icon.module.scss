@@ -7,11 +7,23 @@
 
 .iconMenu {
 	stroke: $main-black;
+	transition: fill$animation-cubic, stroke $animation-cubic;
+	&:hover,
+	&:focus {
+		stroke: $orange;
+		fill: $orange;
+	}
 }
 
-// .iconClose {
-// 	stroke: $main-black;
-// }
+.iconClose {
+	stroke: $main-black;
+	transition: fill$animation-cubic, stroke $animation-cubic;
+	&:hover,
+	&:focus {
+		stroke: $orange;
+		fill: $orange;
+	}
+}
 
 .laptop {
 	fill: linear-gradient(180deg, #eeb055 0%, #d08f38 100%);
@@ -28,7 +40,7 @@
 	transform: translateY(-50%);
 	width: 20px;
 	height: 20px;
-	pointer-events: none; /* Щоб стрілка не заважала клікам */
+	pointer-events: none;
 }
 
 .favorite {
@@ -38,6 +50,6 @@
 	transition: stroke $animation-cubic;
 
 	&.isActive {
-		stroke: red;
+		stroke: $orange;
 	}
 }

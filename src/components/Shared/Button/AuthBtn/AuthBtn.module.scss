@@ -2,15 +2,40 @@
 .logOutBtn {
 	display: flex;
 	justify-content: center;
+	gap: fluid(8, 4);
 	align-items: center;
-	fill: $orange;
 
-	font-size: 16px;
+	font-size: fluid(16, 14);
 	font-style: normal;
 	font-weight: 700;
 	line-height: 1.25;
-
 	background-color: inherit;
+
+	transition: all $animation-cubic;
+
+	&:hover {
+		color: $orange-hover;
+	}
+}
+
+.logOutBtn {
+	fill: $orange;
+	& > svg {
+		transition: fill $animation-cubic;
+	}
+	&:hover svg {
+		fill: $main-black;
+	}
+}
+
+.logInBtn {
+	stroke: $orange;
+	& > svg {
+		transition: stroke $animation-cubic;
+	}
+	&:hover svg {
+		stroke: $main-black;
+	}
 }
 
 .registrationBtn {
@@ -23,8 +48,17 @@
 	background: $main-black;
 	color: $white;
 
-	font-size: 16px;
+	font-size: fluid(16, 14);
 	font-style: normal;
 	font-weight: 700;
 	line-height: 1.25;
+	border: 1px $main-black solid;
+
+	transition: all $animation-cubic;
+
+	&:hover {
+		color: $main-black;
+		background-color: $white;
+		border: 1px $orange-hover solid;
+	}
 }

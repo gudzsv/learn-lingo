@@ -7,6 +7,7 @@
 
 	@include desktopAndLarger {
 		flex-direction: row;
+		min-height: 530px;
 	}
 }
 
@@ -17,20 +18,17 @@
 	padding: 1rem;
 
 	@include tabletAndLarger {
-		width: 720px;
-		height: 530px;
 		flex-shrink: 0;
 		padding-top: 98px;
 		padding-left: 64px;
 	}
 
 	@include desktop {
-		width: 520px;
 		padding-left: 34px;
 	}
 
-	@include largeDesktopAndLarger {
-		width: 53%;
+	@include desktopAndLarger {
+		flex: 5;
 	}
 }
 
@@ -40,17 +38,13 @@
 	font-weight: 500;
 	margin-bottom: 24px;
 	letter-spacing: -0.96px;
+	font-size: fluid(48, 24);
+	width: 100%;
 
 	@include tabletAndLarger {
-		width: 548px;
-		font-size: 48px;
+		width: fluid(548, 300);
 		line-height: 1.17;
 		margin-bottom: 32px;
-	}
-
-	@include desktop {
-		font-size: 36px;
-		width: 400px;
 	}
 }
 
@@ -64,13 +58,18 @@
 .heroText {
 	letter-spacing: -0.32px;
 	margin-bottom: 32px;
+	width: 100%;
+
 	@include tabletAndLarger {
-		width: 471px;
 		font-size: 16px;
 		font-style: normal;
 		font-weight: 400;
 		line-height: 1.36;
 		margin-bottom: 64px;
+	}
+
+	@include desktopAndLarger {
+		width: fluid(471, 256);
 	}
 }
 
@@ -84,7 +83,7 @@
 	transition: background-color $animation-cubic;
 
 	&:hover {
-		background-color: $border-yellow;
+		background-color: $orange-hover;
 	}
 
 	@include mobile {
@@ -100,18 +99,16 @@
 	justify-content: flex-end;
 	align-items: center;
 	flex-direction: column;
+	height: auto;
+	padding-top: rem(16);
+	padding-left: rem(16);
+	padding-right: rem(16);
 
-	@include tablet {
-		width: 100%;
-	}
-
-	@include desktop {
-		width: 415px;
+	@include desktopAndLarger {
+		flex: 5;
 	}
 
 	@include largeDesktopAndLarger {
-		width: 45%;
-		height: 530px;
 		flex-shrink: 0;
 	}
 }

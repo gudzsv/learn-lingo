@@ -17,7 +17,9 @@ const CloseBtn = ({
 			aria-label={ariaLabel ? ariaLabel : label}
 			onClick={onClick}
 		>
-			{icon && <Icon iconName={icon} width={20} height={20} />}
+			{icon && (
+				<Icon iconName={icon} width={20} height={20} className={'iconClose'} />
+			)}
 			{label}
 		</button>
 	);

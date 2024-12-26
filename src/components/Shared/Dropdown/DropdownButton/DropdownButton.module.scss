@@ -25,4 +25,19 @@
 		justify-content: space-between;
 		padding: 8px 12px;
 	}
+
+	& svg {
+		stroke: $main-black;
+		transition: all $animation-cubic;
+	}
+
+	&:hover svg {
+		stroke: $orange;
+	}
+}
+
+.dropdownButton.open > svg {
+	stroke: $orange;
+	// transform: rotate(180deg);
+	transform: scaleY(-1);
 }

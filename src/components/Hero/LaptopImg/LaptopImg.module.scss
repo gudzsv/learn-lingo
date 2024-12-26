@@ -21,6 +21,9 @@
 	height: 80px;
 	margin: 0;
 
+	// width: fluid(361, 182);
+	// height: (176, 80);
+
 	@include tabletAndLarger {
 		width: 361px;
 		height: 176px;

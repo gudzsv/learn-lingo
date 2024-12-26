@@ -1,33 +1,14 @@
 .statusList {
 	border-radius: 30px;
-	border: 2.5px dashed #9fbaae;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
+	border: 2.5px dashed $orange;
+	padding: fluid(40, 16);
 	display: inline-flex;
 	align-items: flex-start;
 	justify-content: center;
 	width: 100%;
+	gap: fluid(100, 10);
 
 	@include mobile {
 		flex-wrap: wrap;
-		gap: 10px;
-	}
-
-	@include tablet {
-		gap: 30px;
-		padding-top: 20px;
-		padding-bottom: 20px;
-	}
-
-	@include desktop {
-		padding-top: 30px;
-		padding-bottom: 30px;
-		gap: 50px;
-	}
-
-	@include largeDesktopAndLarger {
-		padding-top: 40px;
-		padding-bottom: 40px;
-		gap: 100px;
 	}
 }

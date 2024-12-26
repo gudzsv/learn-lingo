@@ -1,26 +1,55 @@
+// .container {
+// 	width: 100%;
+// 	margin: 0 auto;
+
+// 	@include mobile {
+// 		padding: 0 1rem;
+// 	}
+
+// 	@include tablet {
+// 		padding: 0 1.5rem;
+// 		min-width: 768px;
+// 		max-width: 1023px;
+// 	}
+
+// 	@include desktop {
+// 		padding: 0 2rem;
+// 		min-width: 1024px;
+// 		max-width: 1439px;
+// 	}
+
+// 	@include large-desktop {
+// 		padding: 0 4rem;
+// 		min-width: 1440px;
+// 	}
+
+// 	@include extra-large-desktop {
+// 		padding: 0 4rem;
+// 	}
+// }
+
 .container {
 	width: 100%;
 	margin: 0 auto;
+	padding: 0 1rem;
 
 	@include mobile {
-		padding: 0 1rem;
+		/* Мобільний: ширина автоматично гумова */
 	}
 
 	@include tablet {
 		padding: 0 1.5rem;
-		min-width: 768px;
-		max-width: 1023px;
+		max-width: 1023px; /* Вилучіть min-width */
 	}
 
 	@include desktop {
 		padding: 0 2rem;
-		min-width: 1024px;
-		max-width: 1439px;
+		max-width: 1439px; /* Вилучіть min-width */
 	}
 
 	@include large-desktop {
 		padding: 0 4rem;
-		min-width: 1440px;
+		max-width: 1440px; /* Вилучіть min-width */
 	}
 
 	@include extra-large-desktop {

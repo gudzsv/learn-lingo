@@ -30,6 +30,7 @@
 	display: flex;
 	align-items: center;
 	color: $main-black;
+	flex-shrink: 0;
 }
 
 .detailIcon {
@@ -47,6 +48,7 @@
 	align-items: center;
 	color: $main-black;
 	margin-left: 4px;
+	flex-shrink: 0;
 
 	@include tablet {
 		margin-left: 0;
