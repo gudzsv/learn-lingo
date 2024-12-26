@@ -10,6 +10,7 @@
 	text-underline-offset: auto;
 	text-underline-position: from-font;
 	margin-top: 16px;
+	transition: color $animation-cubic;
 
 	@include desktop {
 		font-size: 14px;
@@ -24,5 +25,9 @@
 	@include mobile {
 		font-size: 12px;
 		margin-top: 12px;
+	}
+
+	&:hover {
+		color: $orange;
 	}
 }
